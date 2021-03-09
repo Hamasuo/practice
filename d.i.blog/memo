@@ -1,3 +1,8 @@
+次回は、ラジオボタンのカラー変更と確認ボタンの作成
+
+
+
+
 <form method="post" action="regist_confirm.php">
 
     <div>
@@ -65,7 +70,50 @@
         <input type="text" class="text" size="35" maxlength='100' name="postal_code">
     </div>
 
-
-
-
 </form>
+
+
+ここから
+
+<div>
+    <label>名前（姓）</label><br>
+    <label>名前（名）</label><br>
+    <label>カナ（姓）</label><br>
+    <label>カナ（名）</label><br>
+    <label>メールアドレス</label><br>
+    <label>パスワード</label><br>
+    <label>性別</label><br>
+    <label>郵便番号</label><br>
+    <label>住所（都道府県）</label><br>
+    <label>住所（市区町村）</label><br>
+    <label>住所（番地）</label><br>
+    <label>アカウント権限</label><br>
+</div>
+
+<div>
+    <input type="text" class="text" size="35" maxlength='10' name="family_name"><br>
+    <input type="text" class="text" size="35" maxlength='10' name="last_name"><br>
+    <input type="text" class="text" size="35" maxlength='10' name="family_name_kana"><br>
+    <input type="text" class="text" size="35" maxlength='10' name="last_name_kana"><br>
+    <input type="text" class="text" size="35" maxlength='100' name="mail"><br>
+    <input type="text" class="text" size="35" maxlength='10' name="password"><br>
+    <input type="radio" class="text" name="gender" value="0" checked="checked">男
+    <input type="radio" class="text" name="gender" value="1">女<br>
+    <input type="text" class="text" size="35" maxlength='7' name="postal_code"><br>
+    <input type="text" class="text" size="35" maxlength='10' name="XXX"><br>
+    <input type="text" class="text" size="35" maxlength='10' name="postal_code"><br>
+    <input type="text" class="text" size="35" maxlength='100' name="postal_code"><br>
+    <input type="text" class="text" size="35" maxlength='10' name="XXX"><br>
+</div>
+
+    
+        
+    </div>
+
+    <div>
+    
+    <label>アカウント権限</label>
+    </div>
+    
+    margin-left:10%;
+    margin: 0 auto;

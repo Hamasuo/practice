@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>アカウント登録画面</title>
         <link rel="stylesheet" type="text/css" href="diblog2.css">
-</head>
+    </head>
     
 <body>
     
