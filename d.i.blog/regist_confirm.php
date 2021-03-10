@@ -2,8 +2,8 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <title>アカウント登録確認画面</title>
-        <link rel="stylesheet" type="text/css" href="diblog3.css">
+        <title>アカウント登録画面</title>
+        <link rel="stylesheet" type="text/css" href="diblog4.css">
     </head>
     
 <body>
@@ -49,7 +49,7 @@
                 <p><input type="radio" class="text" name="gender" value="0" checked="checked">男
                 <input type="radio" class="text" name="gender" value="1">女</p>
                 <p><input type="text" class="text" size="10" maxlength='7' name="postal_code"></p>
-                <p><select class="text"　name="prefecture">
+                <p><select class="dropdown"　name="prefecture">
                     <option value="">　</option>
                     <option value="1">北海道</option>
                     <option value="2">青森県</option>
@@ -101,15 +101,21 @@
                 </select></p>
                 <p><input type="text" class="text" size="35" maxlength='10' name="postal_code"></p>
                 <p><input type="text" class="text" size="35" maxlength='100' name="postal_code"></p>
-                <p><select class="text"　name="authority">
+                <p><select class="dropdown"　name="authority">
                     <option value="0">一般</option>
                     <option value="1">管理者</option>
                 </select></p>
+                
             </div>
-        
+                    
         </div>
-    
+        
+            <input type="submit" class="submit" value="確認する">
+
+            
     </div>
+    
+            
     
 </main>
     

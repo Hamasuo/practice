@@ -10,7 +10,7 @@ header{
 .main-container{
     width: 80%;
     margin: 0 auto;
-    height: 700px;
+    height: 730px;
     border-left:2px solid black;
     border-right:2px solid black;
     text-align: center;
@@ -31,8 +31,7 @@ header{
 
 .account_item{
     padding-left: 60%;
-    padding-top: 30px;
-    
+    padding-top: 30px;  
 }
 
 .left p{
@@ -59,6 +58,16 @@ header{
     border: 3px solid;
 }
 
+.submit{
+    width: 80%;
+    margin: 0 auto;
+    height: 50px;
+    text-align: center;
+    background-color: white;
+    width: 180px;
+    height: 50px;
+}
+
 footer{
     clear: left;
     width: 80%;
@@ -67,4 +76,3 @@ footer{
     border: 2px solid black;
     text-align: center;
     }
-
