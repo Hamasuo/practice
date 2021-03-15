@@ -2,8 +2,8 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <title>アカウント登録画面</title>
-        <link rel="stylesheet" type="text/css" href="diblog4.css">
+        <title>アカウント登録確認画面</title>
+        <link rel="stylesheet" type="text/css" href="regist.css">
     </head>
     
 <body>
@@ -15,10 +15,12 @@
 <main>
     
     <div class="main-container">
+        
+        
     
         <div class="left">
             
-            <div class="page_name">アカウント登録画面</div>
+            <div class="page_name">アカウント登録確認画面</div>
             
             <div class="account_item">
                 <p><label>名前（姓）</label></p>
@@ -36,82 +38,57 @@
             </div>
         
         </div>
-        
+
         <div class="right">
         
+            
             <div>
-                <p><input type="text" class="text" size="35" maxlength='10' name="family_name"></p>
-                <p><input type="text" class="text" size="35" maxlength='10' name="last_name"></p>
-                <p><input type="text" class="text" size="35" maxlength='10' name="family_name_kana"></p>
-                <p><input type="text" class="text" size="35" maxlength='10' name="last_name_kana"></p>
-                <p><input type="text" class="text" size="35" maxlength='100' name="mail"></p>
-                <p><input type="text" class="text" size="35" maxlength='10' name="password"></p>
-                <p><input type="radio" class="text" name="gender" value="0" checked="checked">男
-                <input type="radio" class="text" name="gender" value="1">女</p>
-                <p><input type="text" class="text" size="10" maxlength='7' name="postal_code"></p>
-                <p><select class="dropdown"　name="prefecture">
-                    <option value="">　</option>
-                    <option value="1">北海道</option>
-                    <option value="2">青森県</option>
-                    <option value="3">岩手県</option>
-                    <option value="4">宮城県</option>
-                    <option value="5">秋田県</option>
-                    <option value="6">山形県</option>
-                    <option value="7">福島県</option>
-                    <option value="8">茨城県</option>
-                    <option value="9">栃木県</option>
-                    <option value="10">群馬県</option>
-                    <option value="11">埼玉県</option>
-                    <option value="12">千葉県</option>
-                    <option value="13">東京都</option>
-                    <option value="14">神奈川県</option>
-                    <option value="15">新潟県</option>
-                    <option value="16">富山県</option>
-                    <option value="17">石川県</option>
-                    <option value="18">福井県</option>
-                    <option value="19">山梨県</option>
-                    <option value="20">長野県</option>
-                    <option value="21">岐阜県</option>
-                    <option value="22">静岡県</option>
-                    <option value="23">愛知県</option>
-                    <option value="24">三重県</option>
-                    <option value="25">滋賀県</option>
-                    <option value="26">京都府</option>
-                    <option value="27">大阪府</option>
-                    <option value="28">兵庫県</option>
-                    <option value="29">奈良県</option>
-                    <option value="30">和歌山県</option>
-                    <option value="31">鳥取県</option>
-                    <option value="32">島根県</option>
-                    <option value="33">岡山県</option>
-                    <option value="34">広島県</option>
-                    <option value="35">山口県</option>
-                    <option value="36">徳島県</option>
-                    <option value="37">香川県</option>
-                    <option value="38">愛媛県</option>
-                    <option value="39">高知県</option>
-                    <option value="40">福岡県</option>
-                    <option value="41">佐賀県</option>
-                    <option value="42">長崎県</option>
-                    <option value="43">熊本県</option>
-                    <option value="44">大分県</option>
-                    <option value="45">宮崎県</option>
-                    <option value="46">鹿児島県</option>
-                    <option value="47">沖縄県</option>
-                </select></p>
-                <p><input type="text" class="text" size="35" maxlength='10' name="postal_code"></p>
-                <p><input type="text" class="text" size="35" maxlength='100' name="postal_code"></p>
-                <p><select class="dropdown"　name="authority">
-                    <option value="0">一般</option>
-                    <option value="1">管理者</option>
-                </select></p>
-                
+                <div class="confirm">
+                    <p><?php echo $_POST['family_name'];?></p>
+                    <p><?php echo $_POST['last_name'];?></p>
+                    <p><?php echo $_POST['family_name_kana'];?></p>
+                    <p><?php echo $_POST['last_name_kana'];?></p>
+                    <p><?php echo $_POST['mail'];?></p>
+                    <p><?php echo $_POST['password'];?></p>
+                    <p><?php echo $_POST['gender'];?></p>
+                    <p><?php echo $_POST['postal_code'];?></p>
+                    <p><?php echo $_POST['prefecture'];?></p>
+                    <p><?php echo $_POST['address_1'];?></p>
+                    <p><?php echo $_POST['address_2'];?></p>
+                    <p><?php echo $_POST['authority'];?></p>
+                </div>
             </div>
                     
         </div>
-        
-            <input type="submit" class="submit" value="確認する">
+            <div class="confirm_button" method="post">
+                <div class="button_1">
+                    <form action="regist.php">
+                        <input type="submit" class="submit buck" value="前に戻る">
+                    </form>
+                </div>
+                <div class="button_1" method="post">
+                    <form action="regist_complete.php">
+                        <input type="submit" class="submit button_1" value="確認する">
+                        <input type="hidden" value="<?php echo $_POST['id'];?>" name="id">
+                        <input type="hidden" value="<?php echo $_POST['family_name'];?>" name="family_name">
+                        <input type="hidden" value="<?php echo $_POST['last_name'];?>" name="last_name">
+                        <input type="hidden" value="<?php echo $_POST['family_name_kana'];?>" name="family_name_kana">
+                        <input type="hidden" value="<?php echo $_POST['last_name_kana'];?>" name="last_name_kana">
+                        <input type="hidden" value="<?php echo $_POST['mail'];?>" name="mail">
+                        <input type="hidden" value="<?php echo $_POST['password'];?>" name="password">
+                        <input type="hidden" value="<?php echo $_POST['gender'];?>" name="gender">
+                        <input type="hidden" value="<?php echo $_POST['postal_code'];?>" name="postal_code">
+                        <input type="hidden" value="<?php echo $_POST['prefecture'];?>" name="prefecture">
+                        <input type="hidden" value="<?php echo $_POST['address_1'];?>" name="address_1">
+                        <input type="hidden" value="<?php echo $_POST['address_2'];?>" name="address_2">
+                        <input type="hidden" value="<?php echo $_POST['authority'];?>" name="authority">
+                        <input type="hidden" value="<?php echo $_POST['delete_flag'];?>" name="delete_flag">
+                        <input type="hidden" value="<?php echo $_POST['registered_time'];?>" name="registered_time">
+                        <input type="hidden" value="<?php echo $_POST['update_time'];?>" name="update_time">
 
+                    </form>
+                </div>
+            </div>
             
     </div>
     

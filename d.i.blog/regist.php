@@ -15,6 +15,8 @@
 <main>
     
     <div class="main-container">
+        
+        <form method="post" action="regist_confirm.php">
     
         <div class="left">
             
@@ -38,7 +40,7 @@
         </div>
         
         <div class="right">
-        
+
             <div>
                 <p><input type="text" class="text" size="35" maxlength='10' name="family_name"></p>
                 <p><input type="text" class="text" size="35" maxlength='10' name="last_name"></p>
@@ -99,23 +101,24 @@
                     <option value="46">鹿児島県</option>
                     <option value="47">沖縄県</option>
                 </select></p>
-                <p><input type="text" class="text" size="35" maxlength='10' name="postal_code"></p>
-                <p><input type="text" class="text" size="35" maxlength='100' name="postal_code"></p>
+                <p><input type="text" class="text" size="35" maxlength='10' name="address_1"></p>
+                <p><input type="text" class="text" size="35" maxlength='100' name="address_2"></p>
                 <p><select class="dropdown"　name="authority">
                     <option value="0">一般</option>
                     <option value="1">管理者</option>
                 </select></p>
-                
-            </div>
-                    
-        </div>
-        
-            <input type="submit" class="submit" value="確認する">
+//                <input type="hidden" value="<?php echo $_POST['delete_flag'];?>" name="delete_flag">
+//                <input type="hidden" value="<?php echo $_POST['registered_time'];?>" name="registered_time">
+//                <input type="hidden" value="<?php echo $_POST['update_time'];?>" name="update_time">
 
-            
+            </div>
+               
+        </div>
+             <input type="submit" class="submit" value="確認する">
+
+        </form>
     </div>
     
-            
     
 </main>
     
