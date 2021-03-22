@@ -62,13 +62,12 @@
         </div>
             <div class="confirm_button" method="post">
                 <div class="button_1">
-                    <form action="regist.php">
-                        <input type="submit" class="submit buck" value="前に戻る">
-                    </form>
+                    <input type="submit" class="submit buck" value="前に戻る" onclick="history.back();">
                 </div>
+                
                 <div class="button_1" method="post">
                     <form action="regist_complete.php">
-                        <input type="submit" class="submit button_1" value="確認する">
+                        <input type="submit" class="submit button_1" value="登録する">
                         <input type="hidden" value="<?php echo $_POST['id'];?>" name="id">
                         <input type="hidden" value="<?php echo $_POST['family_name'];?>" name="family_name">
                         <input type="hidden" value="<?php echo $_POST['last_name'];?>" name="last_name">

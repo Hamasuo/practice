@@ -1,12 +1,20 @@
 次回は、
-regist.php：//必要か確認
-regist_confirm.php：運用確認
-regist_complete.php：構成
+regist.php：
+①エラーメッセージの表示
+②address_1.2の入力制限
+③//必要か確認
+regist_confirm.php：
+①データ送信再確認（idとかがないから？）
+②プルダウン選択内容の表示
+regist_complete.php：
 
 備考：ラジオボタンのカラー変更
 
-
-
+③
+regist.php-確認ボタン前下記必要？
+//                <input type="hidden" value="<?php echo $_POST['delete_flag'];?>" name="delete_flag">
+//                <input type="hidden" value="<?php echo $_POST['registered_time'];?>" name="registered_time">
+//                <input type="hidden" value="<?php echo $_POST['update_time'];?>" name="update_time">
 
 http://localhost/d.i.blog/regist.php
 http://localhost/d.i.blog/regist_confirm.php

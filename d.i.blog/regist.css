@@ -16,6 +16,7 @@ header{
     text-align: center;
 }
 
+
 .page_name{
     padding-left: 10%;
     font-weight:600;
@@ -97,4 +98,40 @@ footer{
 
 .buck{
     margin-right: 80px;
+}
+
+.left_1{
+    float: left;
+    width: 40%;
+    margin-left: 5%;
+    padding-right: 1%;
+    height: auto;
+    text-align: left;
+    }
+
+.right_1{
+    float: left;
+    width: 40%;
+    height: auto;
+    margin-bottom: 40px;
+    padding-top: 58px;
+    text-align: left;
+    }
+
+.center{
+    clear: left;
+    padding-top: 150px;
+    text-align: center;
+}
+
+.kanryo{
+    font-size: 25px;
+    font-weight:600;
+}
+
+.center input{
+    background-color: white;
+    margin-top: 350px;
+    width: 200px;
+    height: 50px;
 }

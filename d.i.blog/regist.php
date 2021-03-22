@@ -42,17 +42,17 @@
         <div class="right">
 
             <div>
-                <p><input type="text" class="text" size="35" maxlength='10' name="family_name"></p>
-                <p><input type="text" class="text" size="35" maxlength='10' name="last_name"></p>
-                <p><input type="text" class="text" size="35" maxlength='10' name="family_name_kana"></p>
-                <p><input type="text" class="text" size="35" maxlength='10' name="last_name_kana"></p>
-                <p><input type="text" class="text" size="35" maxlength='100' name="mail"></p>
-                <p><input type="text" class="text" size="35" maxlength='10' name="password"></p>
-                <p><input type="radio" class="text" name="gender" value="0" checked="checked">男
+                <p><input type="text" class="text" size="35" maxlength='10' name="family_name"required pattern="[^\x20-\x7E]*"></p>
+                <p><input type="text" class="text" size="35" maxlength='10' name="last_name" required pattern="[^\x20-\x7E]*"></p>
+                <p><input type="text" class="text" size="35" maxlength='10' name="family_name_kana" required pattern="[\u30A1-\u30F6]*"></p>
+                <p><input type="text" class="text" size="35" maxlength='10' name="last_name_kana"　required pattern="[\u30A1-\u30F6]*"></p>
+                <p><input type="email" class="text" size="35" maxlength='100' name="mail" required></p>
+                <p><input type="text" class="text" size="35" maxlength='10' name="password" required pattern="^[0-9A-Za-z]+$"></p>
+                <p><input type="radio" class="text" name="gender" value="0" checked="checked" required>男
                 <input type="radio" class="text" name="gender" value="1">女</p>
-                <p><input type="text" class="text" size="10" maxlength='7' name="postal_code"></p>
-                <p><select class="dropdown"　name="prefecture">
-                    <option value="">　</option>
+                <p><input type="number" class="text" size="10" maxlength='7' name="postal_code" required></p>
+                <p><select class="dropdown"　name="prefecture"　required>
+                    <option value="0">　</option>
                     <option value="1">北海道</option>
                     <option value="2">青森県</option>
                     <option value="3">岩手県</option>
@@ -101,15 +101,13 @@
                     <option value="46">鹿児島県</option>
                     <option value="47">沖縄県</option>
                 </select></p>
-                <p><input type="text" class="text" size="35" maxlength='10' name="address_1"></p>
-                <p><input type="text" class="text" size="35" maxlength='100' name="address_2"></p>
-                <p><select class="dropdown"　name="authority">
+                <p><input type="text" class="text" size="35" maxlength='10' name="address_1" required></p>
+                <p><input type="text" class="text" size="35" maxlength='100' name="address_2" required></p>
+                <p><select class="dropdown"　name="authority" required>
                     <option value="0">一般</option>
                     <option value="1">管理者</option>
                 </select></p>
-//                <input type="hidden" value="<?php echo $_POST['delete_flag'];?>" name="delete_flag">
-//                <input type="hidden" value="<?php echo $_POST['registered_time'];?>" name="registered_time">
-//                <input type="hidden" value="<?php echo $_POST['update_time'];?>" name="update_time">
+
 
             </div>
                

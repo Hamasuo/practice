@@ -25,14 +25,29 @@ $pdo->exec("insert into diworks_blog(id,family_name,last_name,family_name_kana,l
 
 <main>
     
-    <div class="main-container">
+        <div class="main-container">
         
-        <div class="page_name">アカウント登録画面</div>
+        
+    
+        <div class="left_1">
+            
+            <div class="page_name">アカウント登録確認画面</div>
+            
+        </div>
 
-        
-        
-        
-    </div> 
+        <div class="right_1"></div>
+            
+        <div class="center">
+            
+            <div class="kanryo">登録完了しました</div>
+
+            <form action="regist.php">
+                <input type="submit" name="XXX" value="TOPページへ戻る">
+            </form>
+            
+        </div>
+            
+    </div>
 </main>
     
 
