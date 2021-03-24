@@ -49,7 +49,7 @@
                     <p><?php echo $_POST['family_name_kana'];?></p>
                     <p><?php echo $_POST['last_name_kana'];?></p>
                     <p><?php echo $_POST['mail'];?></p>
-                    <p><?php echo $_POST['password'];?></p>
+                    <p>●●●●●●●</p>
                     <p><?php echo $_POST['gender'];?></p>
                     <p><?php echo $_POST['postal_code'];?></p>
                     <p><?php echo $_POST['prefecture'];?></p>
@@ -66,24 +66,24 @@
                 </div>
                 
                 <div class="button_1" method="post">
-                    <form action="regist_complete.php">
+                    <form action="regist_complete.php" method="post">
                         <input type="submit" class="submit button_1" value="登録する">
-                        <input type="hidden" value="<?php echo $_POST['id'];?>" name="id">
-                        <input type="hidden" value="<?php echo $_POST['family_name'];?>" name="family_name">
-                        <input type="hidden" value="<?php echo $_POST['last_name'];?>" name="last_name">
-                        <input type="hidden" value="<?php echo $_POST['family_name_kana'];?>" name="family_name_kana">
-                        <input type="hidden" value="<?php echo $_POST['last_name_kana'];?>" name="last_name_kana">
-                        <input type="hidden" value="<?php echo $_POST['mail'];?>" name="mail">
-                        <input type="hidden" value="<?php echo $_POST['password'];?>" name="password">
-                        <input type="hidden" value="<?php echo $_POST['gender'];?>" name="gender">
-                        <input type="hidden" value="<?php echo $_POST['postal_code'];?>" name="postal_code">
-                        <input type="hidden" value="<?php echo $_POST['prefecture'];?>" name="prefecture">
-                        <input type="hidden" value="<?php echo $_POST['address_1'];?>" name="address_1">
-                        <input type="hidden" value="<?php echo $_POST['address_2'];?>" name="address_2">
-                        <input type="hidden" value="<?php echo $_POST['authority'];?>" name="authority">
-                        <input type="hidden" value="<?php echo $_POST['delete_flag'];?>" name="delete_flag">
-                        <input type="hidden" value="<?php echo $_POST['registered_time'];?>" name="registered_time">
-                        <input type="hidden" value="<?php echo $_POST['update_time'];?>" name="update_time">
+                        <input type="hidden" value="<?php echo $_POST['id']; ?>" name="id">
+                        <input type="hidden" value="<?php echo $_POST['family_name']; ?>" name="family_name">
+                        <input type="hidden" value="<?php echo $_POST['last_name']; ?>" name="last_name">
+                        <input type="hidden" value="<?php echo $_POST['family_name_kana']; ?>" name="family_name_kana">
+                        <input type="hidden" value="<?php echo $_POST['last_name_kana']; ?>" name="last_name_kana">
+                        <input type="hidden" value="<?php echo $_POST['mail']; ?>" name="mail">
+                        <input type="hidden" value="<?php echo $_POST['password']; ?>" name="password">
+                        <input type="hidden" value="<?php echo $_POST['gender']; ?>" name="gender">
+                        <input type="hidden" value="<?php echo $_POST['postal_code']; ?>" name="postal_code">
+                        <input type="hidden" value="<?php echo $_POST['prefecture']; ?>" name="prefecture">
+                        <input type="hidden" value="<?php echo $_POST['address_1']; ?>" name="address_1">
+                        <input type="hidden" value="<?php echo $_POST['address_2']; ?>" name="address_2">
+                        <input type="hidden" value="<?php echo $_POST['authority']; ?>" name="authority">
+                        <input type="hidden" value="<?php echo $_POST['delete_flag']; ?>" name="delete_flag">
+                        <input type="hidden" value="<?php echo $_POST['registered_time']; ?>" name="registered_time">
+                        <input type="hidden" value="<?php echo $_POST['update_time']; ?>" name="update_time">
 
                     </form>
                 </div>
