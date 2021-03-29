@@ -51,7 +51,7 @@
                 <p><input type="radio" class="text" name="gender" value="0" checked="checked" required>男
                 <input type="radio" class="text" name="gender" value="1">女</p>
                 <p><input type="number" class="text" size="10" maxlength='7' name="postal_code" required></p>
-                <p><select class="dropdown"　name="prefecture"　required>
+                <p><select class="dropdown" name="prefecture" required>
                     <option value="">　</option>
                     <option value="北海道">北海道</option>
                     <option value="青森県">青森県</option>
