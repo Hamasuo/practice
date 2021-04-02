@@ -101,8 +101,8 @@
                     <option value="鹿児島県">鹿児島県</option>
                     <option value="沖縄県">沖縄県</option>
                 </select></p>
-                <p><input type="text" class="text" size="35" maxlength='10' name="address_1" required></p>
-                <p><input type="text" class="text" size="35" maxlength='100' name="address_2" required></p>
+                <p><input type="text" class="text" size="35" maxlength='10' name="address_1" required pattern="[-\u4E00-\u9FFF\u3040-\u309Fー\uFF66-\uFF9F\u30A1-\u30F60-9０-９_\s]*"></p>
+                <p><input type="text" class="text" size="35" maxlength='100' name="address_2" required pattern="[-\u4E00-\u9FFF\u3040-\u309Fー\uFF66-\uFF9F\u30A1-\u30F60-9０-９_\s]*"></p>
                 <p><select class="dropdown" name="authority" required>
                     <option value="0">一般</option>
                     <option value="1">管理者</option>
