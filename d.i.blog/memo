@@ -2,7 +2,10 @@ display_errors
 
 次回は、
 regist.php：
-①エラーメッセージの表示：ご教示願う
+①エラーメッセージの表示：
+→<script src="regist.js"></script>
+ pattern="[^\x20-\x7E]*"
+
 ②address_1.2の入力制限:解決
 
 regist_confirm.php：

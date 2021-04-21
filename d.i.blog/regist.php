@@ -5,6 +5,7 @@
         <title>アカウント登録画面</title>
         <link rel="stylesheet" type="text/css" href="regist.css">
     </head>
+
     
 <body>
     
@@ -16,7 +17,7 @@
     
     <div class="main-container">
         
-        <form method="post" action="regist_confirm.php">
+        <form method="post" action="regist_confirm.php" name="regist">
     
         <div class="left">
             
@@ -42,7 +43,18 @@
         <div class="right">
 
             <div>
-                <p><input type="text" class="text" size="35" maxlength='10' name="family_name"required pattern="[^\x20-\x7E]*"></p>
+                <p><input type="text" class="text" size="35" maxlength='10' name="family_name"></p>
+                <script type="text/javascript">
+                    function check(){
+                        if(regist.family_name.value == ""){
+                            alert("入力してください");
+                            return false;
+                        }else{
+                            return true;
+                        }
+                    }
+                </script>
+                <p><input type="text" class="text" size="35" maxlength='10' name="family_name" pattern="[^\x20-\x7E]*"></p>
                 <p><input type="text" class="text" size="35" maxlength='10' name="last_name" required pattern="[^\x20-\x7E]*"></p>
                 <p><input type="text" class="text" size="35" maxlength='10' name="family_name_kana" required pattern="[\u30A1-\u30F6]*"></p>
                 <p><input type="text" class="text" size="35" maxlength='10' name="last_name_kana" required pattern="[\u30A1-\u30F6]*"></p>
@@ -112,7 +124,7 @@
             </div>
                
         </div>
-             <input type="submit" class="submit" value="確認する">
+             <input type="submit" class="submit" value="確認する" onclick="return check()">
 
         </form>
     </div>
