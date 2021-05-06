@@ -46,9 +46,13 @@
 
             <div>
                 
-                <p><input type="text" class="text" size="35" maxlength='10' name="family_name" pattern="[^\x20-\x7E]*"></p>
-                <div id="error"></div>
-                <p><input type="text" class="text" size="35" maxlength='10' name="last_name" pattern="[^\x20-\x7E]*"></p>
+                <p><input type="text" class="text" size="35" maxlength='10' name="family_name"></p>
+                <div class="check_error" id="family_name_error"></div>
+                <p><input type="text" class="text" size="35" maxlength='10' name="last_name"></p>
+                <div class="check_error" id="last_name_error"></div>
+                <p><input type="text" class="text" size="35" maxlength='10' name="family_name_kana"></p>
+                <div class="check_error" id="family_name_kana_error"></div>
+                
 
             </div>
                

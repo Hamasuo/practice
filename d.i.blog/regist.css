@@ -136,12 +136,6 @@ footer{
     height: 50px;
 }
 
-
-
-span.error_m{
-    font-size: 15px;
-    font-weight: normal;
-    color: red;
-    display: block;
-    margin: 0;
+.check_error{
+    line-height: 0px;
 }

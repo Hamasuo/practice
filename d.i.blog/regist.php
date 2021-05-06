@@ -43,17 +43,6 @@
         <div class="right">
 
             <div>
-                <p><input type="text" class="text" size="35" maxlength='10' name="family_name"></p>
-                <script type="text/javascript">
-                    function check(){
-                        if(regist.family_name.value == ""){
-                            alert("入力してください");
-                            return false;
-                        }else{
-                            return true;
-                        }
-                    }
-                </script>
                 <p><input type="text" class="text" size="35" maxlength='10' name="family_name" pattern="[^\x20-\x7E]*"></p>
                 <p><input type="text" class="text" size="35" maxlength='10' name="last_name" required pattern="[^\x20-\x7E]*"></p>
                 <p><input type="text" class="text" size="35" maxlength='10' name="family_name_kana" required pattern="[\u30A1-\u30F6]*"></p>
