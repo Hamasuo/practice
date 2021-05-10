@@ -10,12 +10,11 @@ header{
 .main-container{
     width: 80%;
     margin: 0 auto;
-    height: 880px;
+    height: 900px;
     border-left:2px solid black;
     border-right:2px solid black;
     text-align: center;
 }
-
 
 .page_name{
     padding-left: 10%;
@@ -43,7 +42,7 @@ header{
 .right{
     float: left;
     width: 40%;
-    height: 710px;
+    height: 730px;
     margin-bottom: 40px;
     padding-top: 58px;
     text-align: left;
@@ -138,6 +137,12 @@ footer{
     font-weight:600;
 }
 
+.shippai{
+    color: red;
+    font-size: 25px;
+    font-weight:600;
+}
+
 .center input{
     background-color: white;
     margin-top: 350px;
@@ -145,11 +150,17 @@ footer{
     height: 50px;
 }
 
+.complete-container{
+    width: 80%;
+    margin: 0 auto;
+    height: 700px;
+    border-left:2px solid black;
+    border-right:2px solid black;
+    text-align: center;
+}
+
+
 .check_error{
     line-height: 0px;
     font-size: 13px;
-}
-
-print{
-    color: red;
 }

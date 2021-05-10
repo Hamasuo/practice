@@ -4,10 +4,12 @@
         <meta charset="UTF-8">
         <title>アカウント登録画面</title>
         <link rel="stylesheet" type="text/css" href="regist.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
 
-    
+    <script src="regist.js" type="text/javascript"></script>
 <body>
+
     
 <header>
     <div class="logo">ナビゲーションバー</div>
@@ -17,7 +19,7 @@
     
     <div class="main-container">
         
-        <form method="post" action="regist_confirm.php" name="regist">
+        <form method="post" action="regist_confirm.php" name="regist_form" id="regist_form" onsubmit="return Check()">
     
         <div class="left">
             
@@ -43,16 +45,32 @@
         <div class="right">
 
             <div>
-                <p><input type="text" class="text" size="35" maxlength='10' name="family_name" pattern="[^\x20-\x7E]*"></p>
-                <p><input type="text" class="text" size="35" maxlength='10' name="last_name" pattern="[^\x20-\x7E]*"></p>
-                <p><input type="text" class="text" size="35" maxlength='10' name="family_name_kana" pattern="[\u30A1-\u30F6]*"></p>
-                <p><input type="text" class="text" size="35" maxlength='10' name="last_name_kana" pattern="[\u30A1-\u30F6]*"></p>
-                <p><input type="email" class="text" size="35" maxlength='100' name="mail"></p>
-                <p><input type="text" class="text" size="35" maxlength='10' name="password" pattern="^[0-9A-Za-z]+$"></p>
-                <p><input type="radio" class="text" name="gender" value="0" checked="checked" required>男
+                
+                <p><input type="text" class="text" size="35" maxlength='10' name="family_name"></p>
+                    <div class="a">a</div>
+                    <div class="check_error" id="family_name_error"></div>
+                <p><input type="text" class="text" size="35" maxlength='10' name="last_name"></p>
+                    <div class="a">a</div>
+                    <div class="check_error" id="last_name_error"></div>
+                <p><input type="text" class="text" size="35" maxlength='10' name="family_name_kana"></p>
+                    <div class="a">a</div>
+                    <div class="check_error" id="family_name_kana_error"></div>
+                <p><input type="text" class="text" size="35" maxlength='10' name="last_name_kana"></p>
+                    <div class="a">a</div>
+                    <div class="check_error" id="last_name_kana_error"></div>
+                <p><input type="text" class="text" size="35" maxlength='100' name="mail"></p>
+                    <div class="a">a</div>
+                    <div class="check_error" id="mail_error"></div>
+                <p><input type="text" class="text" size="35" maxlength='10' name="password"></p>
+                    <div class="a">a</div>
+                    <div class="check_error" id="password_error"></div>
+                <p><input type="radio" class="text" name="gender" value="0" checked="checked">男
                 <input type="radio" class="text" name="gender" value="1">女</p>
-                <p><input type="number" class="text" size="10" maxlength='7' name="postal_code" required></p>
-                <p><select class="dropdown" name="prefecture" required>
+                    <div class="a">a</div>
+                <p><input type="text" class="text" size="10" maxlength='7' name="postal_code"></p>
+                    <div class="a">a</div>
+                    <div class="check_error" id="postal_code_error"></div>
+                <p><select class="dropdown" name="prefecture">
                     <option value="">　</option>
                     <option value="北海道">北海道</option>
                     <option value="青森県">青森県</option>
@@ -102,18 +120,24 @@
                     <option value="鹿児島県">鹿児島県</option>
                     <option value="沖縄県">沖縄県</option>
                 </select></p>
-                <p><input type="text" class="text" size="35" maxlength='10' name="address_1" required pattern="[-\u4E00-\u9FFF\u3040-\u309Fー\uFF66-\uFF9F\u30A1-\u30F60-9０-９_\s]*"></p>
-                <p><input type="text" class="text" size="35" maxlength='100' name="address_2" required pattern="[-\u4E00-\u9FFF\u3040-\u309Fー\uFF66-\uFF9F\u30A1-\u30F60-9０-９_\s]*"></p>
-                <p><select class="dropdown" name="authority" required>
+                    <div class="a">a</div>
+                    <div class="check_error" id="prefecture_error"></div>
+                <p><input type="text" class="text" size="35" maxlength='10' name="address_1"></p>
+                    <div class="a">a</div>
+                    <div class="check_error" id="address_1_error"></div>
+                <p><input type="text" class="text" size="35" maxlength='100' name="address_2"></p>
+                    <div class="a">a</div>
+                    <div class="check_error" id="address_2_error"></div>
+                <p><select class="dropdown" name="authority">
                     <option value="0">一般</option>
                     <option value="1">管理者</option>
                 </select></p>
-
+                
 
             </div>
                
         </div>
-             <input type="submit" class="submit" value="確認する" onclick="return check()">
+             <input type="submit" id="submit" class="submit" value="確認する">
 
         </form>
     </div>
