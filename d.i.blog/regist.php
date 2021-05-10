@@ -44,11 +44,11 @@
 
             <div>
                 <p><input type="text" class="text" size="35" maxlength='10' name="family_name" pattern="[^\x20-\x7E]*"></p>
-                <p><input type="text" class="text" size="35" maxlength='10' name="last_name" required pattern="[^\x20-\x7E]*"></p>
-                <p><input type="text" class="text" size="35" maxlength='10' name="family_name_kana" required pattern="[\u30A1-\u30F6]*"></p>
-                <p><input type="text" class="text" size="35" maxlength='10' name="last_name_kana" required pattern="[\u30A1-\u30F6]*"></p>
-                <p><input type="email" class="text" size="35" maxlength='100' name="mail" required></p>
-                <p><input type="text" class="text" size="35" maxlength='10' name="password" required pattern="^[0-9A-Za-z]+$"></p>
+                <p><input type="text" class="text" size="35" maxlength='10' name="last_name" pattern="[^\x20-\x7E]*"></p>
+                <p><input type="text" class="text" size="35" maxlength='10' name="family_name_kana" pattern="[\u30A1-\u30F6]*"></p>
+                <p><input type="text" class="text" size="35" maxlength='10' name="last_name_kana" pattern="[\u30A1-\u30F6]*"></p>
+                <p><input type="email" class="text" size="35" maxlength='100' name="mail"></p>
+                <p><input type="text" class="text" size="35" maxlength='10' name="password" pattern="^[0-9A-Za-z]+$"></p>
                 <p><input type="radio" class="text" name="gender" value="0" checked="checked" required>男
                 <input type="radio" class="text" name="gender" value="1">女</p>
                 <p><input type="number" class="text" size="10" maxlength='7' name="postal_code" required></p>
