@@ -101,7 +101,7 @@ function Check() {
         success = false;
     }else if(!document.regist_form.postal_code.value.match(/^\d{7}$/)){
         var elm7 = document.getElementById("postal_code_error");
-        elm7.textContent = "入力内容に誤りがあります。";
+        elm7.textContent = "郵便番号は半角数字7桁での入力となります。";
         elm7.style.color = "red";
         success = false;
     }else if(document.regist_form.postal_code.value.match(/^\d{7}$/)){
