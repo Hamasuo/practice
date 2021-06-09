@@ -1,4 +1,10 @@
-                <p><input type="text" class="text" size="35" maxlength='10' name="last_name"></p>
+list.php
+    更新・削除ボタンは各アカウントに紐づくよう指定してあげる。
+
+
+
+
+<p><input type="text" class="text" size="35" maxlength='10' name="last_name"></p>
                 <div id="last_name_error"></div>
                 <p><input type="text" class="text" size="35" maxlength='10' name="family_name_kana"></p>
                 <div id="family_name_kana_error"></div>

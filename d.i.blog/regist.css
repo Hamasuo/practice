@@ -26,7 +26,6 @@ header{
     width: 40%;
     margin-left: 5%;
     padding-right: 1%;
-    height: 550px;
     text-align: left;
     }
 
@@ -42,7 +41,6 @@ header{
 .right{
     float: left;
     width: 40%;
-    height: 730px;
     margin-bottom: 40px;
     padding-top: 58px;
     text-align: left;
@@ -92,6 +90,7 @@ footer{
 .confirm p{
     padding-top: 6px;
 }
+
 .con_p{
     margin: 2em 0em;
 }
@@ -163,4 +162,44 @@ footer{
 .check_error{
     line-height: 0px;
     font-size: 13px;
+}
+
+
+.main-container_list{
+    width: 90%;
+    margin: 0 auto;
+    height: 700px;
+    border-left:2px solid black;
+    border-right:2px solid black;
+    text-align: center;
+}
+
+.logo{
+    width: 90%;
+    margin: 0 auto;
+    height: 30px;
+    border: 2px solid black;
+    padding-top: 8px;
+    text-align: center;
+}
+
+.left_list{
+    float: left;
+    width: 40%;
+    margin-left: 5%;
+    padding-right: 1%;
+    text-align: left;
+    }
+
+.right_list{
+    float: left;
+    width: 40%;
+    margin-bottom: 40px;
+    padding-top: 58px;
+    text-align: left;
+    }
+
+.center_list{
+    clear: left;
+    text-align: center;
 }

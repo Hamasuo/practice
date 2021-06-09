@@ -8,9 +8,7 @@
     
 <body>
     
-<header>
-    <div class="logo">ナビゲーションバー</div>
-</header>
+<header>ナビゲーションバー</header>
 
 <main>
     
