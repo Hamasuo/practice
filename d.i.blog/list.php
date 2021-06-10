@@ -76,8 +76,17 @@ $stmt=$pdo->query("select * from diworks_blog entries ORDER BY id DESC");
                         </td>
                         <td><?php echo date('Y/m/d', strtotime($row['registered_time'])); ?></td>
                         <td><?php echo date('Y/m/d', strtotime($row['update_time'])); ?></td>
-                        <td><button type="button" onclick="location.href='http://localhost/d.i.blog/update.php'">更新</button></td>
-                        <td><button type="button" onclick="location.href='http://localhost/d.i.blog/delete.php'">削除</button></td>
+                        <td>
+                            <form action="update.php" method="post">
+                            <input type="submit" value="更新">
+                            <input type="hidden" name="id" value="<?=$row['id']?>">
+                            </form>
+                        <td>
+                            <form action="delete.php" method="post">
+                            <input type="submit" value="削除">
+                            <input type="hidden" name="id" value="<?=$row['id']?>">
+                            </form>
+
                     </tr>
                     <?php
                     }

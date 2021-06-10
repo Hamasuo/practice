@@ -1,6 +1,8 @@
 list.php
     更新・削除ボタンは各アカウントに紐づくよう指定してあげる。
-
+変更前
+<button type="button" onclick="location.href='http://localhost/d.i.blog/update.php'">更新</button></td>
+<button type="button" onclick="location.href='http://localhost/d.i.blog/delete.php'">削除</button></td>
 
 
 
