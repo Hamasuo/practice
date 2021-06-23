@@ -70,6 +70,7 @@
             </div>
                     
         </div>
+        
             <div class="confirm_button" method="post">
                 <div class="button_1">
                     <input type="submit" class="submit buck" value="前に戻る" onclick="history.back();">
