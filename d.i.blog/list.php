@@ -4,7 +4,7 @@ mb_internal_encoding("utf8");
 
 $pdo = new PDO("mysql:dbname=lesson01;host=localhost;","root","root");
 
-$stmt=$pdo->query("select * from diworks_blog entries ORDER BY id DESC");
+$stmt=$pdo->query("select * from diworks_blog where delete_flag = '0' ORDER BY id DESC;");
 
 ?>
 

@@ -1,61 +1,57 @@
-<?php
-/*
-if($_POST) {
-$delete = $_POST["delete"];
-
-//$mysqli = new mysqli("localhost","root","root","sampule_contact");
-$pdo = new PDO("mysql:dbname=lesson01;host=localhost;","root","root");
-
-if(isset($_POST['delete'],)){
-$sql ="DELETE FROM contacts WHERE id = ?";
-}
-}
-
-?>
-
-if(isset($_POST['delete'])) {
-  $delete = $_POST["delete"];
-  $pdo = new PDO("mysql:dbname=lesson01;host=localhost;","root","root");
-  $pdo -> autocommit ("FALSE");
-  $sql = "DELETE FROM contacts WHERE id = ?";
-  if ($stmt = $pdo->prepare($sql)) {
-    $stmt->bind_param("i", $delete);
-    $stmt->execute();
-    $pdo->commit();
-  }
-  $pdo->close();
-}
-
-
-・スタイル変更
-・デリート内容
-・ボタン内容
-
-<?php
-*/
-if(isset($_POST['delete'])) {
-  $delete = $_POST["delete"];
-  $pdo = new PDO("mysql:dbname=lesson01;host=localhost;","root","root");
-  $sql = "DELETE FROM contacts WHERE id = ?";
-}
-?> 
-
-
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-
-</head>
-
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>アカウント削除確認画面</title>
+        <link rel="stylesheet" type="text/css" href="regist.css">
+    </head>
+    
 <body>
+    
+<header>ナビゲーションバー</header>
 
-<div id="delete">
-<p>本当に削除してよろしいですか？</p>
-</div>
+<main>
+    
+        <div class="complete-container">
+        
+        
+    
+        <div class="left_1">
+            
+            <div class="page_name">アカウント削除確認画面</div>
+            
+        </div>
 
-<form action="contact.php" method="post">
-<input type="submit" value="戻る">
-</form>
+        <div class="right_1"></div>
+            
+        <div class="center">
+            
+            <div class="kanryo">
+                <p>本当に削除してよろしいですか？</p>
+            </div>
+
+            <div id="okbu" class="confirm_button" method="post">
+                <div class="button_1">
+                    <input type="submit" class="submit buck" value="戻る" onclick="history.back();">
+                </div>
+                
+                <div class="button_1" method="post">
+                    <form action="delete_complete.php" method="post">
+                        <input type="submit" class="submit button_1" value="削除する">
+                        <input type="hidden" value="<?php echo $_POST['id']; ?>" name="id">
+                        <input type="hidden" value="<?php echo $_POST['delete_flag']; ?>" name="family_name">
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+            
+    </div>
+</main>
+    
+
+<footer>
+   フッター
+</footer>
+    
 </body>
-</html>

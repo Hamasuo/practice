@@ -28,7 +28,7 @@ $stmt=$pdo->query("select * from diworks_blog where id = ".$_POST['id']);
     
         <div class="left">
             
-            <div class="page_name">アカウント登録確認画面</div>
+            <div class="page_name">アカウント削除画面</div>
             
             <div class="account_item">
                 <p><label>名前（姓）</label></p>
@@ -47,7 +47,7 @@ $stmt=$pdo->query("select * from diworks_blog where id = ".$_POST['id']);
         
         </div>
 
-        <div class="right">
+        <div class="right_2">
         
             
             <div>
@@ -91,6 +91,8 @@ $stmt=$pdo->query("select * from diworks_blog where id = ".$_POST['id']);
         <div class="button_1" method="post">
             <form action="delete_confirm.php" method="post">
                 <input type="submit" class="submit button_test" name="delete" value="確認する">
+                <input type="hidden" value="<?php echo $_POST['id']; ?>" name="id">
+                <input type="hidden" value="<?php echo $_POST['delete_flag']; ?>" name="family_name">
             </form>
         </div>
             

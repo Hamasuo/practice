@@ -93,7 +93,7 @@ try {
             
             <div class="kanryo">登録完了しました</div>
             
-            <form action="regist.php">
+            <form action="regist.php" class="ok_button">
                 <input type="submit" value="TOPページへ戻る">
             </form>
             
