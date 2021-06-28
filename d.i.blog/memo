@@ -21,7 +21,7 @@ regist_complete.php：
 ■アカウント一覧／アカウント操作
 
 list.php
-    更新・削除ボタンは各アカウントに紐づくよう指定してあげる。
+    更新・削除ボタンは各アカウントに紐づくよう指定してあげる。⇨OK
     
 delete
 
@@ -32,8 +32,20 @@ delete
 ・削除フラグ、登録日時：データ入力など行われないため、データ取得のPOSTではない。表示したいものをPHPにて作成
 ・入力制限：制限の仕組みを理解して、範囲を広げるなど応用する
 
-6/25
+6/25（更新予定失念対策情報）
 テストで、リストに論理削除したアカウントが表示されていないを追加
+
+質問内容（アカウント更新について）
+ーーーーーーーーーー
+update.php
+DB情報の表示（性別・都道府県・管理権限）
+⇨https://qiita.com/tomcky/items/d5f13f58228593658720
+
+update_confirm.php
+更新データが表示されず、エラー文言が「update.php」でエラーと。。
+「update.php」の記載が間違っているのか、「update_confirm.php」を編集すればいいのか
+ーーーーーーーーーー
+
 
 
 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
@@ -90,5 +102,6 @@ $pdo->exec("insert into diworks_blog(id,family_name,last_name,family_name_kana,l
 変更前
 <button type="button" onclick="location.href='http://localhost/d.i.blog/update.php'">更新</button></td>
 <button type="button" onclick="location.href='http://localhost/d.i.blog/delete.php'">削除</button></td>
+
 
 

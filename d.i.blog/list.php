@@ -80,7 +80,7 @@ $stmt=$pdo->query("select * from diworks_blog where delete_flag = '0' ORDER BY i
                             <?php
                             //echo "<td>", "<form method='POST' action='edit.php'>", "<input type='hidden' name='id' value='",$row['id'],"'>", "<button type='submit' class='btn btn-primary'>Edit</button>", "</form>", "</td>";
                             //update
-                            echo "<form action='delete.php' method='post'>",
+                            echo "<form action='update.php' method='post'>",
                             "<input type='submit' value='更新'>",
                             "<input type='hidden' name='id' value='",$row['id'],"'>",
                             "</form>";
