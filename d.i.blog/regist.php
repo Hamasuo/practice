@@ -127,7 +127,7 @@
                     <div class="a">a</div>
                     <div class="check_error" id="address_2_error"></div>
                 <p><select class="dropdown" name="authority">
-                    <option value="0">一般</option>
+                    <option value="0" selected>一般</option>
                     <option value="1">管理者</option>
                 </select></p>
                 

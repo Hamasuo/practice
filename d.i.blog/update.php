@@ -53,7 +53,7 @@ $stmt=$pdo->query("select * from diworks_blog where id = ".$_POST['id']);
             <div>
                 <?php
                     while($row=$stmt->fetch()){
-                    ?>
+                ?>
                 <div>
                     <p><input type="text" class="text" size="35" maxlength='10' name="family_name" value="<?=$row['family_name']?>"></p>
                     <p class="con_p"><input type="text" class="text" size="35" maxlength='10' name="last_name" value="<?=$row['last_name']?>"></p>
@@ -62,8 +62,9 @@ $stmt=$pdo->query("select * from diworks_blog where id = ".$_POST['id']);
                     <p class="con_p"><input type="text" class="text" size="35" maxlength='10' name="last_name_kana" value="<?=$row['last_name_kana']?>"></p>
                     <p class="con_p"><input type="text" class="text" size="35" maxlength='100' name="mail" value="<?=$row['mail']?>"></p>
                     <p class="con_p"><input type="text" class="text" size="35" maxlength='10' name="password" value="●●●●●●●"></p>
-                    <p class="con_p"><input type="radio" class="text" name="gender" value="0" checked="<?=$row['gender']?>">男
-                <input type="radio" class="text" name="gender" value="1">女
+                    <p class="con_p">
+                        <input type="radio" class="text" name="gender" value="0" checked="<?=$row['gender']?>">男
+                        <input type="radio" class="text" name="gender" value="1">女
                     </p>
                     <p class="con_p"><input type="text" class="text" size="10" maxlength='7' name="postal_code" value="<?=$row['postal_code']?>"></p>
                     <p class="con_p">
@@ -120,14 +121,26 @@ $stmt=$pdo->query("select * from diworks_blog where id = ".$_POST['id']);
                     <p class="con_p"><input type="text" class="text" size="35" maxlength='10' name="address_1" value="<?=$row['address_1']?>"></p>
                     <p class="con_p"><input type="text" class="text" size="35" maxlength='10' name="address_2" value="<?=$row['address_2']?>"></p>
                     <p class="con_p">
-                        <select class="dropdown" name="authority">
-                    <option value="0">一般</option>
-                    <option value="1">管理者</option>
-                        </select></p>
                         <?php
-                        }
+                            if ($row['authority'] == 0){
+                                echo "一般<br>";
+                            }else{
+                                echo "管理者<br>";
+                            }
                         ?>
+                        <select class="dropdown" name="authority">
+                            <option value="0">一般</option>
+                            <option value="1" 
+                                    <?php
+                                        echo "selected";
+                                    ?>
+                                    >管理者</option>
+                        </select>
+                    </p>
                 </div>
+                <?php
+                    }
+                ?>
             </div>
                     
         </div>
