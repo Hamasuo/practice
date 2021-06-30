@@ -24,7 +24,7 @@ $stmt=$pdo->query("select * from diworks_blog where id = ".$_POST['id']);
     
     <div class="main-container">
         
-        
+        <form action="update_confirm.php" method="post">
     
         <div class="left">
             
@@ -63,76 +63,53 @@ $stmt=$pdo->query("select * from diworks_blog where id = ".$_POST['id']);
                     <p class="con_p"><input type="text" class="text" size="35" maxlength='100' name="mail" value="<?=$row['mail']?>"></p>
                     <p class="con_p"><input type="text" class="text" size="35" maxlength='10' name="password" value="●●●●●●●"></p>
                     <p class="con_p">
-                        <input type="radio" class="text" name="gender" value="0" checked="<?=$row['gender']?>">男
-                        <input type="radio" class="text" name="gender" value="1">女
+                        <input type="radio" class="text" name="gender" value="0" 
+                               <?php
+                                    if ($row['gender'] == 0){
+                                        echo "checked";
+                                    }
+                                ?>
+                               >男
+                        <input type="radio" class="text" name="gender" value="1" 
+                               <?php
+                                    if ($row['gender'] == 1){
+                                        echo "checked";
+                                    }
+                                ?>
+                               >女
                     </p>
                     <p class="con_p"><input type="text" class="text" size="10" maxlength='7' name="postal_code" value="<?=$row['postal_code']?>"></p>
                     <p class="con_p">
+                        <?php
+                        $prefe = array("","北海道","青森県","岩手県","宮城県","秋田県","山形県","福島県","茨城県","栃木県","群馬県","埼玉県","千葉県","東京都","神奈川県","新潟県","富山県","福井県","長野県","岐阜県","静岡県","愛知県","三重県","滋賀県","京都府","大阪府","兵庫県","奈良県","和歌山県","鳥取県","島根県","岡山県","広島県","山口県","徳島県","香川県","愛媛県","高知県","福岡県","佐賀県","長崎県","熊本県","大分県","宮崎県","鹿児島県","沖縄県");
+                        ?>
                         <select class="dropdown" name="prefecture">
-                    <option value="">　</option>
-                    <option value="北海道">北海道</option>
-                    <option value="青森県">青森県</option>
-                    <option value="岩手県">岩手県</option>
-                    <option value="宮城県">宮城県</option>
-                    <option value="秋田県">秋田県</option>
-                    <option value="山形県">山形県</option>
-                    <option value="福島県">福島県</option>
-                    <option value="茨城県">茨城県</option>
-                    <option value="栃木県">栃木県</option>
-                    <option value="群馬県">群馬県</option>
-                    <option value="埼玉県">埼玉県</option>
-                    <option value="千葉県">千葉県</option>
-                    <option value="東京都">東京都</option>
-                    <option value="神奈川県">神奈川県</option>
-                    <option value="新潟県">新潟県</option>
-                    <option value="富山県">富山県</option>
-                    <option value="石川県">石川県</option>
-                    <option value="福井県">福井県</option>
-                    <option value="山梨県">山梨県</option>
-                    <option value="長野県">長野県</option>
-                    <option value="岐阜県">岐阜県</option>
-                    <option value="静岡県">静岡県</option>
-                    <option value="愛知県">愛知県</option>
-                    <option value="三重県">三重県</option>
-                    <option value="滋賀県">滋賀県</option>
-                    <option value="京都府">京都府</option>
-                    <option value="大阪府">大阪府</option>
-                    <option value="兵庫県">兵庫県</option>
-                    <option value="奈良県">奈良県</option>
-                    <option value="和歌山県">和歌山県</option>
-                    <option value="鳥取県">鳥取県</option>
-                    <option value="島根県">島根県</option>
-                    <option value="岡山県">岡山県</option>
-                    <option value="広島県">広島県</option>
-                    <option value="山口県">山口県</option>
-                    <option value="徳島県">徳島県</option>
-                    <option value="香川県">香川県</option>
-                    <option value="愛媛県">愛媛県</option>
-                    <option value="高知県">高知県</option>
-                    <option value="福岡県">福岡県</option>
-                    <option value="佐賀県">佐賀県</option>
-                    <option value="長崎県">長崎県</option>
-                    <option value="熊本県">熊本県</option>
-                    <option value="大分県">大分県</option>
-                    <option value="宮崎県">宮崎県</option>
-                    <option value="鹿児島県">鹿児島県</option>
-                    <option value="沖縄県">沖縄県</option>
-                </select></p>
+                            <?php
+                                for ($i= 1;$i <count($prefe);$i++){
+                                    if ($row['prefecture'] == $prefe[$i]){
+                                    echo('<option value="'.$prefe[$i].'" selected>'.$prefe[$i].'</option>');
+                                    }else{
+                                        echo('<option value="'.$prefe[$i].'">'.$prefe[$i].'</option>');
+                                    }
+                                }
+                            ?>
+                        </select></p>
                     <p class="con_p"><input type="text" class="text" size="35" maxlength='10' name="address_1" value="<?=$row['address_1']?>"></p>
                     <p class="con_p"><input type="text" class="text" size="35" maxlength='10' name="address_2" value="<?=$row['address_2']?>"></p>
                     <p class="con_p">
-                        <?php
-                            if ($row['authority'] == 0){
-                                echo "一般<br>";
-                            }else{
-                                echo "管理者<br>";
-                            }
-                        ?>
                         <select class="dropdown" name="authority">
-                            <option value="0">一般</option>
+                            <option value="0"
+                                    <?php
+                                        if ($row['authority'] == 0){
+                                            echo "selected";
+                                        }
+                                    ?>
+                                    >一般</option>
                             <option value="1" 
                                     <?php
-                                        echo "selected";
+                                        if ($row['authority'] == 1){
+                                            echo "selected";
+                                        }
                                     ?>
                                     >管理者</option>
                         </select>
@@ -143,25 +120,13 @@ $stmt=$pdo->query("select * from diworks_blog where id = ".$_POST['id']);
                 ?>
             </div>
                     
-        </div>
+            </div>
         
-        <div class="button_1">
-            <form action="update_confirm.php" method="post">
+            <div class="button_1">
                 <input type="submit" class="submit button_test" name="update" value="確認する">
-                <input type="hidden" value="<?php echo $_POST['family_name']; ?>" name="family_name">
-                <input type="hidden" value="<?php echo $_POST['last_name']; ?>" name="last_name">
-                <input type="hidden" value="<?php echo $_POST['family_name_kana']; ?>" name="family_name_kana">
-                <input type="hidden" value="<?php echo $_POST['last_name_kana']; ?>" name="last_name_kana">
-                <input type="hidden" value="<?php echo $_POST['mail']; ?>" name="mail">
-                <input type="hidden" value="<?php echo $_POST['password']; ?>" name="password">
-                <input type="hidden" value="<?php echo $_POST['gender']; ?>" name="gender">
-                <input type="hidden" value="<?php echo $_POST['postal_code']; ?>" name="postal_code">
-                <input type="hidden" value="<?php echo $_POST['prefecture']; ?>" name="prefecture">
-                <input type="hidden" value="<?php echo $_POST['address_1']; ?>" name="address_1">
-                <input type="hidden" value="<?php echo $_POST['address_2']; ?>" name="address_2">
-                <input type="hidden" value="<?php echo $_POST['authority']; ?>" name="authority">
-            </form>
-        </div>
+            </div>
+            
+        </form>
             
     </div>
     

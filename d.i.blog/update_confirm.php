@@ -79,6 +79,7 @@
                 <div class="button_1" method="post">
                     <form action="update_complete.php" method="post">
                         <input type="submit" class="submit button_1" value="更新する">
+                        <input type="hidden" value="<?php echo $_POST['id']; ?>" name="id">
                         <input type="hidden" value="<?php echo $_POST['family_name']; ?>" name="family_name">
                         <input type="hidden" value="<?php echo $_POST['last_name']; ?>" name="last_name">
                         <input type="hidden" value="<?php echo $_POST['family_name_kana']; ?>" name="family_name_kana">

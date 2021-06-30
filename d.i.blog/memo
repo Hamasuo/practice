@@ -26,6 +26,7 @@ regist_complete.php：
 list.php
     更新・削除ボタンは各アカウントに紐づくよう指定してあげる。⇨OK
     削除のときも更新のときも、更新日時を変更
+<input type="hidden" value="<?php echo $_POST['update_time']; ?>" name="update_time">
     削除し、無効となったときに、ボタンが押せないように
     
 delete
@@ -35,11 +36,10 @@ delete
 質問内容（アカウント更新について）
 ーーーーーーーーーー
 update.php
-DB情報の表示（性別・都道府県・管理権限）
-⇨https://qiita.com/tomcky/items/d5f13f58228593658720
+DB情報の表示（性別・都道府県・管理権限）⇨OK
 <input>内に<php>を記述することで解決ができる。
 都道府県については、for文応用し、for文内に判定を入れ込む
-→都道府県の実験としてまずは、アカウント登録でfor文テスト予定
+→都道府県の実験としてまずは、アカウント登録でfor文テスト予定 ⇨OK
 
 update_confirm.php
 更新データが表示されず、エラー文言が「update.php」でエラーと。。
@@ -111,5 +111,5 @@ $pdo->exec("insert into diworks_blog(id,family_name,last_name,family_name_kana,l
 <button type="button" onclick="location.href='http://localhost/d.i.blog/update.php'">更新</button></td>
 <button type="button" onclick="location.href='http://localhost/d.i.blog/delete.php'">削除</button></td>
 
-
+ = $_POST['']
 
