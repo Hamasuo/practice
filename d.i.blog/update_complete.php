@@ -1,15 +1,17 @@
 <?php
 //,family_name_kana = $_POST['last_name'],last_name_kana = $_POST['last_name_kana'],mail = $_POST['mail'],password = $_POST['password'],gender = $_POST['gender'],postal_code = $_POST['postal_code'],prefecture = $_POST['prefecture'],address_1 = $_POST['address_1'],address_2 = $_POST['address_2'],authority = $_POST['authority']
 //データ送信とならない
+//パスワードハッシュ化=$hash_pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
+//'".$hash_pass."'
+//update_time更新。update_time = '".date('Y-m-d H:i:s')."'
 
 try {
     $pdo = new PDO("mysql:dbname=lesson01;host=localhost;","root","root");
-    $pdo->exec("update diworks_blog set family_name = '".$_POST['family_name']."' , last_name = '".$_POST['last_name']."' where id = ".$_POST['id']);
+    $pdo->exec("update diworks_blog set family_name = '".$_POST['family_name']."', last_name = '".$_POST['last_name']."' where id = ".$_POST['id']);
 } catch (PDOException $e) {
     print('');
     die();
 }
-
 ?>
 
 <!doctype HTML>

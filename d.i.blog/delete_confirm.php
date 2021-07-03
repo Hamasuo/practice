@@ -12,10 +12,8 @@
 
 <main>
     
-        <div class="complete-container">
+    <div class="complete-container">
         
-        
-    
         <div class="left_1">
             
             <div class="page_name">アカウント削除確認画面</div>

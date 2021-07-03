@@ -41,7 +41,7 @@ if(isset($_POST['delete'])) {
     
 try {
     $pdo = new PDO("mysql:dbname=lesson01;host=localhost;","root","root");
-    $pdo->exec("update diworks_blog set delete_flag = '1' where id = ".$_POST['id']);
+    $pdo->exec("update diworks_blog set delete_flag = '1', update_time = '".date('Y-m-d H:i:s')."' where id = ".$_POST['id']);
 } catch (PDOException $e) {
     print('
 <!doctype HTML>

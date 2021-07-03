@@ -1,4 +1,4 @@
-<!doctype HTML>
+<!DOCTYPE html>
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
@@ -14,8 +14,6 @@
     
     <div class="main-container">
         
-        
-    
         <div class="left">
             
             <div class="page_name">アカウント更新確認画面</div>
@@ -39,7 +37,6 @@
 
         <div class="right_2">
         
-            
             <div>
                 <div class="confirm">
                     <p><?php echo $_POST['family_name'];?></p>
@@ -92,7 +89,6 @@
                         <input type="hidden" value="<?php echo $_POST['address_1']; ?>" name="address_1">
                         <input type="hidden" value="<?php echo $_POST['address_2']; ?>" name="address_2">
                         <input type="hidden" value="<?php echo $_POST['authority']; ?>" name="authority">
-
                     </form>
                 </div>
             </div>
