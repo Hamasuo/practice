@@ -115,6 +115,7 @@ $stmt=$pdo->query("select * from diworks_blog where id = ".$_POST['id']);
                         </select>
                     </p>
                 </div>
+                <input type="hidden" value="<?php echo $row['id']; ?>" name="id">
                 <?php
                     }
                 ?>
