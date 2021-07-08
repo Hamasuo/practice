@@ -14,7 +14,7 @@ $stmt=$pdo->query("select * from diworks_blog ORDER BY id DESC;");
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <title>アカウント登録画面</title>
+        <title>アカウント一覧画面</title>
         <link rel="stylesheet" type="text/css" href="regist.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>

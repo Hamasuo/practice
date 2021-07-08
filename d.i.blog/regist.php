@@ -9,7 +9,6 @@
 
     <script src="regist.js" type="text/javascript"></script>
 <body>
-
     
 <header>ナビゲーションバー</header>
 
@@ -17,7 +16,7 @@
     
     <div class="main-container">
         
-        <form method="post" action="regist_confirm.php" name="regist_form" id="regist_form" onsubmit="return Check()">
+        <form method="post" action="regist_confirm.php" name="regist_form" onsubmit="return Check()">
     
         <div class="left">
             

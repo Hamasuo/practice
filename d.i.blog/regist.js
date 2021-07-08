@@ -1,6 +1,7 @@
+//regist
 function Check() {
     var success = true;
-    console.log("test2");
+//    console.log("test2");
 //名前（姓）
     if (document.regist_form.family_name.value == "") {
 //var elm = document.getElementById("test_line");
@@ -11,7 +12,7 @@ function Check() {
 //    }else if(!document.regist_form.family_name.value.match(/^[ぁ-ん]+$/)){
     }else if(!document.regist_form.family_name.value.match(/^[一-龥ぁ-ん]/)){
         var elm1 = document.getElementById("family_name_error");
-        elm1.textContent = "入力内容に誤りがあります。";
+        elm1.textContent = "名前（姓）は、かな・漢字での入力となります。";
         elm1.style.color = "red";
         success = false;
     }else if(document.regist_form.family_name.value.match(/^[一-龥ぁ-ん]/)){
@@ -26,7 +27,7 @@ function Check() {
         success = false;
     }else if(!document.regist_form.last_name.value.match(/^[一-龥ぁ-ん]/)){
         var elm2 = document.getElementById("last_name_error");
-        elm2.textContent = "入力内容に誤りがあります。";
+        elm2.textContent = "名前（名）は、かな・漢字での入力となります。";
         elm2.style.color = "red";
         success = false;
     }else if(document.regist_form.last_name.value.match(/^[一-龥ぁ-ん]/)){
@@ -41,7 +42,7 @@ function Check() {
         success = false;
     }else if(!document.regist_form.family_name_kana.value.match(/^([ァ-ン]|ー)+$/)){
         var elm3 = document.getElementById("family_name_kana_error");
-        elm3.textContent = "入力内容に誤りがあります。";
+        elm3.textContent = "カナ（姓）は、カタカナでの入力となります。";
         elm3.style.color = "red";
         success = false;
     }else if(document.regist_form.family_name_kana.value.match(/^([ァ-ン]|ー)+$/)){
@@ -56,7 +57,7 @@ function Check() {
         success = false;
     }else if(!document.regist_form.last_name_kana.value.match(/^([ァ-ン]|ー)+$/)){
         var elm4 = document.getElementById("last_name_kana_error");
-        elm4.textContent = "入力内容に誤りがあります。";
+        elm4.textContent = "カナ（名）は、カタカナでの入力となります。";
         elm4.style.color = "red";
         success = false;
     }else if(document.regist_form.last_name_kana.value.match(/^([ァ-ン]|ー)+$/)){
@@ -123,7 +124,7 @@ function Check() {
         success = false;
     }else if(!document.regist_form.address_1.value.match(/^[ぁ-んァ-ン一-龥0-9０-９]+$/)){
         var elm9 = document.getElementById("address_1_error");
-        elm9.textContent = "入力内容に誤りがあります。";
+        elm9.textContent = "英語・記号（ハイフンとスペース）は入力できません。";
         elm9.style.color = "red";
         success = false;
     }else if(document.regist_form.address_1.value.match(/^[ぁ-んァ-ン一-龥0-9０-９]+$/)){
@@ -138,7 +139,7 @@ function Check() {
         success = false;
     }else if(!document.regist_form.address_2.value.match(/^[ぁ-んァ-ン一-龥0-9０-９ ー−　¥-]+$/)){
         var elm10 = document.getElementById("address_2_error");
-        elm10.textContent = "入力内容に誤りがあります。";
+        elm10.textContent = "英語・記号（ハイフンとスペース）は入力できません。";
         elm10.style.color = "red";
         success = false;
     }else if(document.regist_form.address_2.value.match(/^[ぁ-んァ-ン一-龥0-9０-９ ー−　¥-]+$/)){
@@ -147,6 +148,12 @@ function Check() {
     }
     return success;
 }
+
+
+
+
+
+
 
 
 
