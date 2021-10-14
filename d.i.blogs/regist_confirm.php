@@ -79,7 +79,7 @@
                     </tr>
                 </table>
 <!--
-作成
+regist.phpに作成
 ・入力制限
 ・入力エラー
 
@@ -95,6 +95,7 @@
 住所（市区町村）←UIはテキスボックス、最大入力文字数は10文字、初期値は空欄、カラム名「address_1」
 住所（番地）　　←UIはテキスボックス、最大入力文字数は100文字、初期値は空欄、カラム名「address_2」
 アカウント権限　←UIはプルダウン（一般、管理者の２種類）、初期値は「一般」を選択済、カラム名「authority」
+
 -->
                     
                 <div class="submit_box">
@@ -106,7 +107,18 @@
                     <form method="post" action="regist_complete.php">
                         <div class="ok">
                             <input type="submit" class="submit" value="登録する">
-                            <!--入力データ受け渡しプログラム-->
+                            <input type="hidden" value="<?php echo $_POST['family_name']; ?>" name="family_name">
+                            <input type="hidden" value="<?php echo $_POST['last_name']; ?>" name="last_name">
+                            <input type="hidden" value="<?php echo $_POST['family_name_kana']; ?>" name="family_name_kana">
+                            <input type="hidden" value="<?php echo $_POST['last_name_kana']; ?>" name="last_name_kana">
+                            <input type="hidden" value="<?php echo $_POST['mail']; ?>" name="mail">
+                            <input type="hidden" value="<?php echo $_POST['password']; ?>" name="password">
+                            <input type="hidden" value="<?php echo $_POST['gender']; ?>" name="gender">
+                            <input type="hidden" value="<?php echo $_POST['postal_code']; ?>" name="postal_code">
+                            <input type="hidden" value="<?php echo $_POST['prefecture']; ?>" name="prefecture">
+                            <input type="hidden" value="<?php echo $_POST['address_1']; ?>" name="address_1">
+                            <input type="hidden" value="<?php echo $_POST['address_2']; ?>" name="address_2">
+                            <input type="hidden" value="<?php echo $_POST['authority']; ?>" name="authority">
                         </div>
                     </form>
                     
