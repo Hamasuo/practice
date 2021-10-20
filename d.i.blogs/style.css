@@ -5,7 +5,7 @@ header{
 }
 .logo{
     float: left;
-    width: 90px;
+    width: 3.5em;
     padding-left: 50px;
     color: gray;
     font-size: 25px;
@@ -14,7 +14,7 @@ header{
 
 header ul{
     float: left;
-    line-height: 30px;
+    line-height: 28px;
 }
 header ul li{
     float: left;

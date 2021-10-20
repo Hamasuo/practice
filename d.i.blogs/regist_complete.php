@@ -28,9 +28,9 @@ family_name,last_name,family_name_kana,last_name_kana,mail,password,gender,posta
 
             <header>ナビゲーションバー</header>
             <main>
-                <div class="page_name">アカウント登録完了画面</div>
-
+                
                 <div class="main_container">
+                    <div class="page_name">アカウント登録完了画面</div>
 
                     <div class="kanryo er">エラーが発生したためアカウント登録できません。</div>
 
@@ -65,9 +65,9 @@ family_name,last_name,family_name_kana,last_name_kana,mail,password,gender,posta
         
         <header>ナビゲーションバー</header>
         <main>
-            <div class="page_name">アカウント登録完了画面</div>
             
             <div class="main_container">
+                <div class="page_name">アカウント登録完了画面</div>
                 
                 <div class="kanryo">登録完了しました</div>
                 

@@ -6,39 +6,58 @@
         <link rel = "stylesheet" type = "text/css" href = "regist.css">
     </head>
     
+    <script src="regist.js" type="text/javascript"></script>
     <body>
         
         <header>ナビゲーションバー</header>
         <main>
-            <div class="page_name">アカウント登録画面</div>
-            
+                        
             <div class="main_container">
+                <div class="page_name">アカウント登録画面</div>
                 
-                <form method="post" action="regist_confirm.php">
+                <form method="post" action="regist_confirm.php" name="regist_form" onsubmit="return Check()">
                     <table border="0" cellspacing="30">
                         <tr>
                             <td>名前（姓）</td>
-                            <td><input type="text" class="text" name="family_name"></td>
+                            <td>
+                                <input type="text" class="text" name="family_name">
+                                <div class="check_error" id="family_name_error"></div>
+                            </td>
                         </tr>
                         <tr>
                             <td>名前（名）</td>
-                            <td><input type="text" class="text" name="last_name"></td>
+                            <td>
+                                <input type="text" class="text" name="last_name">
+                                <div class="check_error" id="last_name_error"></div>
+                            </td>
                         </tr>
                         <tr>
                             <td>カナ（姓）</td>
-                            <td><input type="text" class="text" name="family_name_kana"></td>
+                            <td>
+                                <input type="text" class="text" name="family_name_kana">
+                                <div class="check_error" id="family_name_kana_error"></div>
+                            </td>
                         </tr>
                         <tr>
                             <td>カナ（名）</td>
-                            <td><input type="text" class="text" name="last_name_kana"></td>
+                            <td>
+                                <input type="text" class="text" name="last_name_kana">
+                                <div class="check_error" id="last_name_kana_error"></div>
+                            </td>
                         </tr>
                         <tr>
                             <td>メールアドレス</td>
-                            <td><input type="text" class="text" name="mail"></td>
+                            <td>
+                                <input type="text" class="text" name="mail">
+                                <div class="check_error" id="mail_error"></div>
+                            </td>
                         </tr>
                         <tr>
                             <td>パスワード</td>
-                            <td><input type="text" class="text" name="password"></td>
+                            <td>
+                                <input type="text" class="text" name="password">
+                                <div class="check_error" id="password_error"></div>
+                            </td>
                         </tr>
                         <tr>
                             <td>性別</td>
@@ -49,7 +68,10 @@
                         </tr>
                         <tr>
                             <td>郵便番号</td>
-                            <td><input type="text" class="textmin" name="postal_code"></td>
+                            <td>
+                                <input type="text" class="textmin" name="postal_code">
+                                <div class="check_error" id="postal_code_error"></div>
+                            </td>
                         </tr>
                         <!--都道府県-->
                         <tr>
@@ -65,15 +87,22 @@
                                         }
                                     ?>
                                 </select>
+                                <div class="check_error" id="prefecture_error"></div>
                             </td>
                         </tr>
                         <tr>
                             <td>住所（市区町村）</td>
-                            <td><input type="text" class="text" name="address_1"></td>
+                            <td>
+                                <input type="text" class="text" name="address_1">
+                                <div class="check_error" id="address_1_error"></div>
+                            </td>
                         </tr>
                         <tr>
                             <td>住所（番地）</td>
-                            <td><input type="text" class="text" name="address_2"></td>
+                            <td>
+                                <input type="text" class="text" name="address_2">
+                                <div class="check_error" id="address_2_error"></div>
+                            </td>
                         </tr>
                         <tr>
                             <td>アカウント権限</td>

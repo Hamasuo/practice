@@ -10,9 +10,9 @@
         
         <header>ナビゲーションバー</header>
         <main>
-            <div class="page_name">アカウント登録確認画面</div>
             
             <div class="main_container">
+                <div class="page_name">アカウント登録確認画面</div>
                 
                 <table border="0" cellspacing="30">
                     <tr>
