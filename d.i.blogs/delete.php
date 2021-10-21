@@ -96,8 +96,7 @@ $stmt=$pdo->query("select * from diworks_blogs where id = ".$_POST['id']);
                 <form method="post" action="delete_confirm.php">
                     <div class="submit_box">
                         <input type="submit" class="submit" value="確認する">
-                        <input type="hidden" value="<?php echo $_POST['id'];?>">
-                        <input type="hidden" value="<?php echo $_POST['delete_flag'];?>">
+                        <input type="hidden" value="<?php echo $_POST['id'] ;?>" name="id">
                     </div>
                 </form>
             </div>

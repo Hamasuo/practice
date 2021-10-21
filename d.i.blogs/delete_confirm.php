@@ -25,8 +25,7 @@
                     <form method="post" action="delete_complete.php">
                         <div class="ok">
                             <input type="submit" class="submit" value="削除する">
-                            <input type="hidden" value="<?php echo $_POST['id'];?>">
-                            <input type="hidden" value="<?php echo $_POST['delete_flag'];?>">
+                            <input type="hidden" value="<?php echo $_POST['id'] ;?>" name="id">
                         </div>
                     </form>
                     
