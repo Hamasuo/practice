@@ -31,35 +31,35 @@ $stmt=$pdo->query("select * from diworks_blogs where id = ".$_POST['id']);
                         <tr>
                             <td>名前（姓）</td>
                             <td>
-                                <input type="text" class="text" name="family_name" value="<?=$row['family_name']?>">
+                                <input type="text" class="text" maxlength='10' name="family_name" value="<?=$row['family_name']?>">
                                 <div class="check_error" id="family_name_error"></div>
                             </td>
                         </tr>
                         <tr>
                             <td>名前（名）</td>
                             <td>
-                                <input type="text" class="text" name="last_name" value="<?=$row['last_name']?>">
+                                <input type="text" class="text" maxlength='10' name="last_name" value="<?=$row['last_name']?>">
                                 <div class="check_error" id="last_name_error"></div>
                             </td>
                         </tr>
                         <tr>
                             <td>カナ（姓）</td>
                             <td>
-                                <input type="text" class="text" name="family_name_kana" value="<?=$row['family_name_kana']?>">
+                                <input type="text" class="text" maxlength='10' name="family_name_kana" value="<?=$row['family_name_kana']?>">
                                 <div class="check_error" id="family_name_kana_error"></div>
                             </td>
                         </tr>
                         <tr>
                             <td>カナ（名）</td>
                             <td>
-                                <input type="text" class="text" name="last_name_kana" value="<?=$row['last_name_kana']?>">
+                                <input type="text" class="text" maxlength='10' name="last_name_kana" value="<?=$row['last_name_kana']?>">
                                 <div class="check_error" id="last_name_kana_error"></div>
                             </td>
                         </tr>
                         <tr>
                             <td>メールアドレス</td>
                             <td>
-                                <input type="text" class="text" name="mail" value="<?=$row['mail']?>">
+                                <input type="text" class="text" maxlength='100' name="mail" value="<?=$row['mail']?>">
                                 <div class="check_error" id="mail_error"></div>
                             </td>
                         </tr>
@@ -68,9 +68,8 @@ $stmt=$pdo->query("select * from diworks_blogs where id = ".$_POST['id']);
                             <td>
                                 <!-- パスワード変更画面 -->
                                 <form method="post" action="changepassword.php">
-                                    <input type="submit" value="パスワード変更はこちら">
-                                    <input type="hidden" value="<?php echo $row['id']; ?>" name="id">
-                                    <input type="hidden" value="<?php echo $row['password']; ?>" name="password">
+                                    <input type="submit" formaction="changepassword.php" value="パスワード変更はこちら">
+                                    <input type="hidden" value="<?php echo $_POST['id']; ?>" name="id">
                                 </form>
                             </td>
                         </tr>
@@ -96,7 +95,7 @@ $stmt=$pdo->query("select * from diworks_blogs where id = ".$_POST['id']);
                         <tr>
                             <td>郵便番号</td>
                             <td>
-                                <input type="text" class="textmin" name="postal_code" value="<?=$row['postal_code']?>">
+                                <input type="text" class="textmin" maxlength='7' name="postal_code" value="<?=$row['postal_code']?>">
                                 <div class="check_error" id="postal_code_error"></div>
                             </td>
                         </tr>
@@ -124,14 +123,14 @@ $stmt=$pdo->query("select * from diworks_blogs where id = ".$_POST['id']);
                         <tr>
                             <td>住所（市区町村）</td>
                             <td>
-                                <input type="text" class="text" name="address_1" value="<?=$row['address_1']?>">
+                                <input type="text" class="text" maxlength='10' name="address_1" value="<?=$row['address_1']?>">
                                 <div class="check_error" id="address_1_error"></div>
                             </td>
                         </tr>
                         <tr>
                             <td>住所（番地）</td>
                             <td>
-                                <input type="text" class="text" name="address_2" value="<?=$row['address_2']?>">
+                                <input type="text" class="text" maxlength='100' name="address_2" value="<?=$row['address_2']?>">
                                 <div class="check_error" id="address_2_error"></div>
                             </td>
                         </tr>
@@ -164,7 +163,7 @@ $stmt=$pdo->query("select * from diworks_blogs where id = ".$_POST['id']);
                     
                     <div class="submit_box">
                         <input type="submit" class="submit" value="確認する">
-                        <input type="hidden" value="<?php echo $row['id']; ?>" name="id">
+                        <input type="hidden" value="<?php echo $_POST['id']; ?>" name="id">
                     </div>
                 </form>
             </div>

@@ -88,7 +88,7 @@
                     <form method="post" action="update_complete.php">
                         <div class="ok">
                             <input type="submit" class="submit" value="更新する">
-                            <input type="hidden" value="<?php echo $row['id']; ?>" name="id">
+                            <input type="hidden" value="<?php echo $_POST['id']; ?>" name="id">
                             <input type="hidden" value="<?php echo $_POST['family_name']; ?>" name="family_name">
                             <input type="hidden" value="<?php echo $_POST['last_name']; ?>" name="last_name">
                             <input type="hidden" value="<?php echo $_POST['family_name_kana']; ?>" name="family_name_kana">
@@ -100,7 +100,6 @@
                             <input type="hidden" value="<?php echo $_POST['address_1']; ?>" name="address_1">
                             <input type="hidden" value="<?php echo $_POST['address_2']; ?>" name="address_2">
                             <input type="hidden" value="<?php echo $_POST['authority']; ?>" name="authority">
-                            <input type="hidden" value="<?php echo $_POST['update_time']; ?>" name="update_time">
                         </div>
                     </form>
                     

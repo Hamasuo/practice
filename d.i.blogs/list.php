@@ -61,7 +61,7 @@ $stmt=$pdo->query("select * from diworks_blogs ORDER BY id DESC;");
                                 <?php
                                 echo "<form action='update.php' method='post'>",
                                 "<input type='submit' value='更新'>",
-                                "<input type='hidden' name='id' value='",$row['id'],"'>",
+                                "<input type='hidden' name='id' value='".$row['id']."'>",
                                 "</form>";
                                 ?>
                             <td>

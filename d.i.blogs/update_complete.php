@@ -1,5 +1,5 @@
 <?php
-
+//var_dump($_POST);
 try{
     $pdo = new PDO("mysql:dbname=lesson01;host=localhost;","root","root");
 
