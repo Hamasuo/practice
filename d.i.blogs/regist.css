@@ -105,5 +105,9 @@ footer{
     width: 80%;
     height: 800px;
     margin: 0 auto;
+}
 
+.comment{
+    color: red;
+    font-weight:600;
 }

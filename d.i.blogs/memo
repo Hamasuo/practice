@@ -1,1 +1,4 @@
 http://localhost/d.i.blogs/d.i.blog.html
+
+ログイン成功後に権限にて確認できる資料が違う＝IDのPOSTが必要？
+現状：ログイン画面にてprintで「成功」「失敗」を表示しているため、うまく[hidden]が機能しない。。要確認
