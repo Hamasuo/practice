@@ -3,6 +3,42 @@
 try{
 mb_internal_encoding("utf8");
 $pdo = new PDO("mysql:dbname=lesson01;host=localhost;","root","root");
+} catch (PDOException $e) {
+    print('
+    <!DOCTYPE html>
+    <html lang="ja">
+        <head>
+            <meta charset="UTF-8">
+            <title>ログイン画面</title>
+            <link rel = "stylesheet" type = "text/css" href = "regist.css">
+        </head>
+
+        <body>
+
+            <header>ナビゲーションバー</header>
+            <main>
+                
+                <div class="main_container">
+                    <div class="page_name">ログイン画面</div>
+
+                    <div class="kanryo er">エラーが発生したためログイン情報を取得できません。</div>
+
+                    <div class="submit_box">
+                        <form action="login.php">
+                            <input type="submit" class="submit" value="ログイン画面へ戻る">
+                        </form>
+                    </div>
+
+                </div>
+            </main>
+
+            <footer>フッター</footer>
+
+        </body>
+    </html>
+    ');
+    die();
+}
 
 $stmt=$pdo->prepare("select * from diworks_blogs where mail=:mail");
 $stmt->bindParam(':mail', $_POST['mail']);
@@ -48,7 +84,8 @@ print('
 </html>
 ');
 die();
-}else {
+}
+else {
 print ('
 <!DOCTYPE html>
 <html lang="ja">
@@ -179,42 +216,7 @@ print ('
 die();
 }
 }
-} catch (PDOException $e) {
-    print('
-    <!DOCTYPE html>
-    <html lang="ja">
-        <head>
-            <meta charset="UTF-8">
-            <title>ログイン画面</title>
-            <link rel = "stylesheet" type = "text/css" href = "regist.css">
-        </head>
 
-        <body>
-
-            <header>ナビゲーションバー</header>
-            <main>
-                
-                <div class="main_container">
-                    <div class="page_name">ログイン画面</div>
-
-                    <div class="kanryo er">エラーが発生したためログイン情報を取得できません。</div>
-
-                    <div class="submit_box">
-                        <form action="login.php">
-                            <input type="submit" class="submit" value="ログイン画面へ戻る">
-                        </form>
-                    </div>
-
-                </div>
-            </main>
-
-            <footer>フッター</footer>
-
-        </body>
-    </html>
-    ');
-    die();
-}
 /*
 <?php
 if(isset($_POST['user'])) {
