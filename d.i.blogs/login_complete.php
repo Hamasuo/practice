@@ -47,12 +47,15 @@ $stmt->execute();
 if(isset($_POST['mail'])) {
 if($rows = $stmt->fetch()) {
 if(password_verify($_POST['password'], $rows["password"])) {
-    $msg = ('ログイン完了しました。');
-    $link = '<a href="d.i.blog.html">ホーム</a>';
+    $msg = 'ログイン完了しました。';
+    $link = '<a href="d.i.blog.html"><font color="black">TOPページへ進む</font></a>';
 } else {
     $msg = 'メールアドレスもしくはパスワードが間違っています。';
-    $link = '<a href="login.php">戻る</a>';
+    $link = '<a href="login.php"><font color="black">戻る</font></a>';
 }
+} else {
+    $msg = 'メールアドレスを入力してください。';
+    $link = '<a href="login.php"><font color="black">戻る</font></a>';
 }
 }
 ?>
@@ -70,11 +73,15 @@ if(password_verify($_POST['password'], $rows["password"])) {
         <header>ナビゲーションバー</header>
         <main>
 
-            <div class="main_container">
-                <div class="page_name">ログイン画面</div>
+            <div class="main_container login">
+                <div class="login">
+                    <div class="page_name">ログイン画面</div>
 
-                <div class="kanryo"><?php echo $msg; ?></div>
-                <div class="submit_box submit"><?php echo $link; ?></div>
+                    <div class="kanryo"><?php echo $msg; ?></div>
+                    <div class="submit_box">
+                        <div><?php echo $link; ?></div>
+                    </div>
+                </div>
             </div>
         </main>
 

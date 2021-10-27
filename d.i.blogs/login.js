@@ -1,11 +1,8 @@
-
-
 function Check() {
     var success = true;
-    if(document.login_form.mail.value == "$row['mail']") {
-        var elm1 = document.getElementById("mail_error");
-        elm1.textContent = "";
-    }else if(document.login_form.mail.value == "") {
+//    console.log("test2");
+/*
+    if (document.login_form.mail.value == "") {
         var elm1 = document.getElementById("family_name_error");
         elm1.textContent = "メールアドレスが未入力です。";
         elm1.style.color = "red";
@@ -19,5 +16,21 @@ function Check() {
         var elm1 = document.getElementById("mail_error");
         elm1.textContent = "";
     }
+*/
+    if (document.login_form.password.value == "") {
+        var elm6 = document.getElementById("password_error");
+        elm6.textContent = "パスワードが未入力です。";
+        elm6.style.color = "red";
+        success = false;
+    }else if(!document.login_form.password.value.match(/^[a-zA-Z0-9]+$/)){
+        var elm6 = document.getElementById("password_error");
+        elm6.textContent = "パスワードは英数字での入力となります。";
+        elm6.style.color = "red";
+        success = false;
+    }else if(document.login_form.password.value.match(/^[a-zA-Z0-9]+$/)){
+        var elm6 = document.getElementById("password_error");
+        elm6.textContent = "";
+    }
+
     return success;
 }

@@ -6,7 +6,7 @@
         <link rel = "stylesheet" type = "text/css" href = "regist.css">
     </head>
     
-    <script src="regist.js" type="text/javascript"></script>
+    <script src="pwchange.js" type="text/javascript"></script>
     <body>
         
         <header>ナビゲーションバー</header>
@@ -15,32 +15,31 @@
             <div class="main_container">
                 <div class="page_name">パスワード変更画面</div>
                 
-                <table border="0" cellspacing="30">
- 
-                    <tr>
-                        <td>パスワード</td>
-                        <td>
-                            <input type="text" class="text" maxlength='10' name="password">
-                            <div class="check_error" id="password_error"></div>
-                        </td>
-                    </tr>
+                <form method="post" action="changepassword_confirm.php" name="pwchange_form" onsubmit="return Check()">
+                    <table border="0" cellspacing="30">
 
-                </table>
-                    
-                <div class="submit_box">
-                    <div>
-                        <input type="submit" class="submit" value="前に戻る" onclick="history.back();">
-                    </div>
+                        <tr>
+                            <td>パスワード</td>
+                            <td>
+                                <input type="text" class="text" maxlength='10' name="password">
+                                <div class="check_error" id="password_error"></div>
+                            </td>
+                        </tr>
 
-                    <form method="post" action="changepassword_confirm.php">
+                    </table>
+
+                    <div class="submit_box">
+                        <div>
+                            <input type="submit" class="submit" value="前に戻る" onclick="history.back();">
+                        </div>
+                        
                         <div class="ok">
                             <input type="submit" class="submit" value="更新する">
                             <input type="hidden" value="<?php echo $_POST['id']; ?>" name="id">
                             <input type="hidden" value="<?php echo $_POST['password']; ?>" name="password">
                         </div>
-                    </form>
-                    
-                </div>
+                    </div>
+                </form>
             </div>
         </main>
         

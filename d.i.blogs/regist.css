@@ -111,3 +111,14 @@ footer{
     color: red;
     font-weight:600;
 }
+
+a{
+    text-decoration:none;
+    font-size: 13px;
+    border: 2px solid black;
+    padding: 20px 50px 20px 50px;
+}
+
+.login{
+    padding-bottom: 1em;
+}
