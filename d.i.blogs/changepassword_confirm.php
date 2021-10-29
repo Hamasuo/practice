@@ -14,7 +14,7 @@
             <div class="main_container">
                 <div class="page_name">パスワード変更確認画面</div>
                 
-                <div class="kanryo">本当に更新してよろしいですか?</div>
+                <div class="kanryo">本当に変更してよろしいですか?</div>
                 
                 <div class="submit_box">
                     <div>

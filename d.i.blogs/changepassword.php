@@ -19,10 +19,17 @@
                     <table border="0" cellspacing="30">
 
                         <tr>
-                            <td>パスワード</td>
+                            <td>新しいパスワード</td>
                             <td>
                                 <input type="text" class="text" maxlength='10' name="password">
                                 <div class="check_error" id="password_error"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>パスワード確認</td>
+                            <td>
+                                <input type="text" class="text" maxlength='10' name="wpass">
+                                <div class="check_error" id="wpass_error"></div>
                             </td>
                         </tr>
 
@@ -34,9 +41,8 @@
                         </div>
                         
                         <div class="ok">
-                            <input type="submit" class="submit" value="更新する">
+                            <input type="submit" class="submit" value="変更する">
                             <input type="hidden" value="<?php echo $_POST['id']; ?>" name="id">
-                            <input type="hidden" value="<?php echo $_POST['password']; ?>" name="password">
                         </div>
                     </div>
                 </form>

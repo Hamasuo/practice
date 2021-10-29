@@ -23,7 +23,7 @@ try {
                 <div class="main_container">
                     <div class="page_name">パスワード変更完了画面</div>
 
-                    <div class="kanryo er">エラーが発生したためアカウント変更できません。</div>
+                    <div class="kanryo er">エラーが発生したためパスワード変更できません。</div>
 
                     <div class="submit_box">
                         <form action="d.i.blog.html">

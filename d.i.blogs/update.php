@@ -13,7 +13,7 @@ $stmt=$pdo->query("select * from diworks_blogs where id = ".$_POST['id']);
         <link rel = "stylesheet" type = "text/css" href = "regist.css">
     </head>
     
-    <script src="regist.js" type="text/javascript"></script>
+    <script src="update.js" type="text/javascript"></script>
     <body>
         
         <header>ナビゲーションバー</header>
@@ -63,10 +63,10 @@ $stmt=$pdo->query("select * from diworks_blogs where id = ".$_POST['id']);
                                 <div class="check_error" id="mail_error"></div>
                             </td>
                         </tr>
+                        <!--パスワード変更画面-->
                         <tr>
                             <td>パスワード</td>
                             <td>
-                                <!-- パスワード変更画面 -->
                                 <form method="post" action="changepassword.php">
                                     <input type="submit" formaction="changepassword.php" value="パスワード変更はこちら">
                                     <input type="hidden" value="<?php echo $_POST['id']; ?>" name="id">
