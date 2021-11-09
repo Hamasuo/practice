@@ -9,7 +9,7 @@ $pdo = new PDO("mysql:dbname=lesson01;host=localhost;","root","root");
     <html lang="ja">
         <head>
             <meta charset="UTF-8">
-            <title>ログイン画面</title>
+            <title>ログイン確認画面</title>
             <link rel = "stylesheet" type = "text/css" href = "regist.css">
         </head>
 
@@ -19,7 +19,7 @@ $pdo = new PDO("mysql:dbname=lesson01;host=localhost;","root","root");
             <main>
                 
                 <div class="main_container">
-                    <div class="page_name">ログイン画面</div>
+                    <div class="page_name">ログイン確認画面</div>
 
                     <div class="kanryo er">エラーが発生したためログイン情報を取得できません。</div>
 
@@ -43,19 +43,24 @@ $pdo = new PDO("mysql:dbname=lesson01;host=localhost;","root","root");
 $stmt=$pdo->prepare("select * from diworks_blogs where mail=:mail");
 $stmt->bindParam(':mail', $_POST['mail']);
 $stmt->execute();
-    
+
 if(isset($_POST['mail'])) {
 if($rows = $stmt->fetch()) {
 if(password_verify($_POST['password'], $rows["password"])) {
     $msg = 'ログイン完了しました。';
-    $link = '<a href="d.i.blog.html"><font color="black">TOPページへ進む</font></a>';
+    //$link = 'd.i.blog.php';
+    $link = 'ttest.php';
+    
+    $comm = 'TOPページへ進む';
 } else {
     $msg = 'メールアドレスもしくはパスワードが間違っています。';
-    $link = '<a href="login.php"><font color="black">戻る</font></a>';
+    $link = 'login.php';
+    $comm = '戻る';
 }
 } else {
     $msg = 'メールアドレスを入力してください。';
-    $link = '<a href="login.php"><font color="black">戻る</font></a>';
+    $link = 'login.php';
+    $comm = '戻る';
 }
 }
 ?>
@@ -64,7 +69,7 @@ if(password_verify($_POST['password'], $rows["password"])) {
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <title>ログイン画面</title>
+        <title>ログイン確認画面</title>
         <link rel = "stylesheet" type = "text/css" href = "regist.css">
     </head>
     
@@ -75,11 +80,14 @@ if(password_verify($_POST['password'], $rows["password"])) {
 
             <div class="main_container login">
                 <div class="login">
-                    <div class="page_name">ログイン画面</div>
+                    <div class="page_name">ログイン確認画面</div>
 
                     <div class="kanryo"><?php echo $msg; ?></div>
                     <div class="submit_box">
-                        <div><?php echo $link; ?></div>
+                        <form method="post" action='<?php echo $link; ?>'>
+                            <input type="submit" class="submit" value='<?php echo $comm; ?>'>
+                            <input type="hidden" value="<?php echo $_POST['mail']; ?>" name="mail">
+                        </form>
                     </div>
                 </div>
             </div>

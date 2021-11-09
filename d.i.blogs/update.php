@@ -3,6 +3,8 @@ mb_internal_encoding("utf8");
 
 $pdo = new PDO("mysql:dbname=lesson01;host=localhost;","root","root");
 $stmt=$pdo->query("select * from diworks_blogs where id = ".$_POST['id']);
+
+//var_dump($stmt);
 ?>
 
 <!DOCTYPE html>

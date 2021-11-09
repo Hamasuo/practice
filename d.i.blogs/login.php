@@ -37,7 +37,7 @@
                     </table>
 
                     <div class="submit_box">
-                        <input type="submit" class="submit" value="確認する">
+                        <input type="submit" class="submit" value="ログイン">
                     </div>
                     
                 </form>

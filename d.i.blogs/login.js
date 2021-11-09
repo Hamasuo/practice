@@ -1,9 +1,9 @@
 function Check() {
     var success = true;
-//    console.log("test2");
-/*
+//    console.log("test");
+
     if (document.login_form.mail.value == "") {
-        var elm1 = document.getElementById("family_name_error");
+        var elm1 = document.getElementById("mail_error");
         elm1.textContent = "メールアドレスが未入力です。";
         elm1.style.color = "red";
         success = false;
@@ -16,7 +16,7 @@ function Check() {
         var elm1 = document.getElementById("mail_error");
         elm1.textContent = "";
     }
-*/
+
     if (document.login_form.password.value == "") {
         var elm6 = document.getElementById("password_error");
         elm6.textContent = "パスワードが未入力です。";
