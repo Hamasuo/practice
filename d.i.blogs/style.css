@@ -5,8 +5,8 @@ header{
 }
 .logo{
     float: left;
-    width: 3.5em;
-    padding-left: 50px;
+    width: 3em;
+    padding-left: 35px;
     color: gray;
     font-size: 25px;
     line-height: 60px;
@@ -14,12 +14,13 @@ header{
 
 header ul{
     float: left;
+    padding-inline-start: 35px;
     line-height: 28px;
 }
 header ul li{
     float: left;
     list-style: none;
-    padding-right: 50px;
+    padding-right: 35px;
     color: gray;
     font-size: 25px;
 }

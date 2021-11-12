@@ -35,7 +35,7 @@ family_name,last_name,family_name_kana,last_name_kana,mail,password,gender,posta
                     <div class="kanryo er">エラーが発生したためアカウント登録できません。</div>
 
                     <div class="submit_box">
-                        <form action="d.i.blog.html">
+                        <form action="d.i.blog.php">
                             <input type="submit" class="submit" value="TOPページへ戻る">
                         </form>
                     </div>
@@ -72,7 +72,7 @@ family_name,last_name,family_name_kana,last_name_kana,mail,password,gender,posta
                 <div class="kanryo">登録完了しました</div>
                 
                 <div class="submit_box">
-                    <form action="d.i.blog.html">
+                    <form action="d.i.blog.php">
                         <input type="submit" class="submit" value="TOPページへ戻る">
                     </form>
                 </div>

@@ -26,7 +26,7 @@ try {
                     <div class="kanryo er">エラーが発生したためパスワード変更できません。</div>
 
                     <div class="submit_box">
-                        <form action="d.i.blog.html">
+                        <form action="d.i.blog.php">
                             <input type="submit" class="submit" value="TOPページへ戻る">
                         </form>
                     </div>
@@ -62,7 +62,7 @@ try {
                 <div class="kanryo">変更完了しました</div>
                 
                 <div class="submit_box">
-                    <form action="d.i.blog.html">
+                    <form action="d.i.blog.php">
                         <input type="submit" class="submit" value="TOPページへ戻る">
                     </form>
                 </div>

@@ -1,5 +1,21 @@
 <?php
+mb_internal_encoding("utf8");
 
+session_start();
+$pdo = new PDO("mysql:dbname=lesson01;host=localhost;","root","root");
+$stmt=$pdo->query("select * from diworks_blogs where mail = '".$_POST['mail']."'");
+
+
+if($rows = $stmt->fetch()) {
+$_SESSION['authority'] = $rows['authority'];
+if ($_SESSION['authority'] == 1) {//管理者であるとき
+    $regist = '<a href="./regist.php">アカウント登録</a>';
+    $list = '<a href="./list.php">アカウント一覧</a>';
+} else {//管理者でないとき
+    $regist = '';
+    $list = '';
+}
+}
 ?>
 
 <!doctype html>
@@ -21,8 +37,9 @@
                 <li>D.I.Blogについて</li>
                 <li>問い合わせ</li>
                 <li>その他</li>
-                <li><a href="./regist.php">アカウント登録</a></li>
-                <li><a href="./list.php">アカウント一覧</a></li>
+                <li><?php echo $regist; ?></li>
+                <li><?php echo $list; ?></li>
+                <li><a href="./logout.php">ログアウト</a></li>
             </ul>
         </header>
 

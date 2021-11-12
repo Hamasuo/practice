@@ -1,3 +1,80 @@
+<?php
+mb_internal_encoding("utf8");
+
+session_start();
+if (empty($_SESSION['authority'])) {//SESSION情報がない場合
+    print('
+    <!DOCTYPE html>
+    <html lang="ja">
+        <head>
+            <meta charset="UTF-8">
+            <title>アカウント登録画面</title>
+            <link rel = "stylesheet" type = "text/css" href = "regist.css">
+        </head>
+
+        <body>
+
+            <header>ナビゲーションバー</header>
+            <main>
+                
+                <div class="main_container">
+                    <div class="page_name">アカウント登録画面</div>
+
+                    <div class="kanryo">管理者のみ操作できるページです。</div>
+
+                    <div class="submit_box">
+                        <form action="d.i.blog.php">
+                            <input type="submit" class="submit" value="TOPページへ戻る">
+                        </form>
+                    </div>
+
+                </div>
+            </main>
+
+            <footer>フッター</footer>
+
+        </body>
+    </html>
+    ');
+    die();
+} else if($_SESSION['authority'] == 0) {//権限が一般であるとき
+    print('
+    <!DOCTYPE html>
+    <html lang="ja">
+        <head>
+            <meta charset="UTF-8">
+            <title>アカウント登録画面</title>
+            <link rel = "stylesheet" type = "text/css" href = "regist.css">
+        </head>
+
+        <body>
+
+            <header>ナビゲーションバー</header>
+            <main>
+                
+                <div class="main_container">
+                    <div class="page_name">アカウント登録画面</div>
+
+                    <div class="kanryo">管理者のみ操作できるページです。</div>
+
+                    <div class="submit_box">
+                        <form action="d.i.blog.php">
+                            <input type="submit" class="submit" value="TOPページへ戻る">
+                        </form>
+                    </div>
+
+                </div>
+            </main>
+
+            <footer>フッター</footer>
+
+        </body>
+    </html>
+    ');
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
     <head>

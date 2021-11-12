@@ -84,15 +84,35 @@ footer{
 .list{
     width: 90%;
 }
-
-.list table{
-    margin-top: 60px;
-}
-
 .list_container{
     width: 90%;
     margin: 0 auto;
     padding-bottom: 60px;
+}
+.list table{
+    margin-top: 60px;
+}
+.search{
+    border: none;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    height: 20px;
+    font-size: 1em;
+}
+.aaa{
+    text-align:center;
+}
+.color{
+    background-color: white;
+}
+.searbotton{
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    width: 20%;
+    box-sizing: border-box;
+    margin-left: 80%;
 }
 
 /*ログイン*/
