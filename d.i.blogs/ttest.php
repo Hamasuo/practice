@@ -3,68 +3,70 @@ mb_internal_encoding("utf8");
 
 $pdo = new PDO("mysql:dbname=lesson01;host=localhost;","root","root");
 //$stmt=$pdo->query("select * from diworks_blogs ORDER BY id DESC;");
-
 /*
-if($_POST['idd'] != "" or $_POST['sei'] != "" or $_POST['mei'] != "" or $_POST['kana'] != ""){ //IDおよびユーザー名の入力有無を確認
-$stmt = $pdo->query("select * from diworks_blogs where (id = '".$_POST['idd']."' or family_name LIKE '%".$_POST['sei']."%' or last_name LIKE '%".$_POST['mei']."%' or family_name_kana LIKE '%".$_POST['kana']."%')"); //SQL文を実行して、結果を$stmtに代入する。
-}
-
-名前（姓）　　　←UIはテキスボックス、初期値は空欄
-名前（名）　　　←UIはテキスボックス、初期値は空欄
-カナ（姓）　　　←UIはテキスボックス、初期値は空欄
-カナ（名）　　　←UIはテキスボックス、初期値は空欄
-メールアドレス　←UIはテキスボックス、初期値は空欄
-性別　　　　　　←UIはラジオボタン（男、女の２種類）、初期値は「男」を選択済
-アカウント権限
-
-if($rows = $stmt->fetch()) {
-$_SESSION['authority'] = $rows['authority'];
-if ($_SESSION['authority'] == 1) {//管理者であるとき
-    $regist = '<a href="./regist.php">アカウント登録</a>';
-    $list = '<a href="./list.php">アカウント一覧</a>';
-} else {//管理者でないとき
-    $regist = '';
-    $list = '';
-}
-}
-
-if($_POST['idd'] == "" and $_POST['sei'] == "" and $_POST['mei'] == "" and $_POST['kana'] == ""){ //すべての入力内容が未入力の場合
-    $stmt=$pdo->query("select * from diworks_blogs ORDER BY id DESC;");
-} elseif($_POST['idd'] != "") {
-    $stmt = $pdo->query("select * from diworks_blogs where id = '".$_POST['idd']."'");
-} elseif($_POST['sei'] != "") {
-    $stmt = $pdo->query("select * from diworks_blogs where family_name LIKE '%".$_POST['sei']."%'");
-} elseif($_POST['mei'] != "") {
-    $stmt = $pdo->query("select * from diworks_blogs where last_name LIKE '%".$_POST['mei']."%'");
-}
-*/
-
-if($_POST['family_names'] == "" and $_POST['last_names'] == "" and $_POST['family_name_kanas'] == "" and $_POST['last_name_kanas'] == "" and $_POST['mails'] == "" and $_POST['genders'] == "" and $_POST['authoritys'] == ""){
-    $conditions = 'ORDER BY id DESC';
+if($_POST['family_names'] == "" and $_POST['last_names'] == "" and $_POST['family_name_kanas'] == "" and $_POST['last_name_kanas'] == "" and $_POST['mails'] == "" and $_POST['genders'] == "2" and $_POST['authoritys'] == "2"){
+//if($_POST['family_names'] == "" and $_POST['last_names'] == "" and $_POST['family_name_kanas'] == "" and $_POST['last_name_kanas'] == "" and $_POST['mails'] == "" and empty($_POST['genders']) and $_POST['authoritys'] == ""){
+    $conditions = '';
 } elseif($_POST['family_names'] != ""){
-    $conditions = "where family_name LIKE '%".$_POST['family_names']."%'";
+    $conditions = "and family_name LIKE '%".$_POST['family_names']."%'";
 } elseif($_POST['last_names'] != ""){
-    $conditions = "where last_name LIKE '%".$_POST['last_names']."%'";
+    $conditions = "and last_name LIKE '%".$_POST['last_names']."%'";
 } elseif($_POST['family_name_kanas'] != ""){
-    $conditions = "where family_name_kana LIKE '%".$_POST['family_name_kanas']."%'";
+    $conditions = "and family_name_kana LIKE '%".$_POST['family_name_kanas']."%'";
 } elseif($_POST['last_name_kanas'] != ""){
-    $conditions = "where last_name_kana LIKE '%".$_POST['last_name_kanas']."%'";
+    $conditions = "and last_name_kana LIKE '%".$_POST['last_name_kanas']."%'";
 } elseif($_POST['mails'] != ""){
-    $conditions = "where mail LIKE '%".$_POST['mails']."%'";
-} 
-
-/*elseif($_POST['genders'] != ""){
-    $conditions = "where gender = ".$_POST['genders'];
-} elseif($_POST['authoritys'] != ""){
-    $conditions = "where authority = ".$_POST['authoritys'];
+    $conditions = "and mail LIKE '%".$_POST['mails']."%'";
+} elseif($_POST['genders'] == "0" or $_POST['genders'] == "1"){
+//} elseif(!empty($_POST['genders'])){
+    $conditions = "and gender = ".$_POST['genders'];
+} elseif($_POST['authoritys'] == "0" or $_POST['authoritys'] == "1"){
+    $conditions = "and authority = ".$_POST['authoritys'];
 }
+    
+//$stmt=$pdo->query("select * from diworks_blogs ".$conditions);
+$stmt=$pdo->query("select * from diworks_blogs where id >= 0 ".$conditions." ORDER BY id DESC");
 */
+//検索条件を残したままの仕様に変更
+$conditions = '';
 
-$stmt=$pdo->query("select * from diworks_blogs ".$conditions);
+if(count($_POST)>0){
+    if($_POST['family_names'] != ""){
+        $conditions .= "and family_name LIKE '%".$_POST['family_names']."%'";
+    }
+    if($_POST['last_names'] != ""){
+        $conditions .= "and last_name LIKE '%".$_POST['last_names']."%'";
+    }
+    if($_POST['family_name_kanas'] != ""){
+        $conditions .= "and family_name_kana LIKE '%".$_POST['family_name_kanas']."%'";
+    }
+    if($_POST['last_name_kanas'] != ""){
+        $conditions .= "and last_name_kana LIKE '%".$_POST['last_name_kanas']."%'";
+    }
+    if($_POST['mails'] != ""){
+        $conditions .= "and mail LIKE '%".$_POST['mails']."%'";
+    }
+    if($_POST['genders'] == "0" or $_POST['genders'] == "1"){
+        $conditions .= "and gender LIKE '%".$_POST['genders']."%'";
+    }
+    if($_POST['authoritys'] == "0" or $_POST['authoritys'] == "1"){
+        $conditions .= "and authority LIKE '%".$_POST['authoritys']."%'";
+    }
+}
+
+//var_dump($conditions);
+$stmt=$pdo->query("select * from diworks_blogs where id >= 0 ".$conditions." ORDER BY id DESC");
+    
+//$stmt=$pdo->query("select * from diworks_blogs ".$conditions);
 
 /*
 var_dump($stmt);
 var_dump($_POST['mail']);
+
+//$var = 2+2;
+$var = "あ"."い";
+$var = $var."うえ";
+$var .= "お";
 */
 ?>
 
@@ -87,9 +89,23 @@ var_dump($_POST['mail']);
                 <td>カナ(性)</td><td><input type="text" class="search" name="family_name_kanas"></td>
                 <td>カナ(名)</td><td><input type="text" class="search" name="last_name_kanas"></td>
                 <td>メールアドレス</td><td><input type="text" class="search" name="mails"></td>
-                <td>性別</td><td><input type="text" class="search" name="genders"></td>
-                <td>アカウント権限</td><td><input type="text" class="search" name="authoritys"></td>
+                <td>性別</td>
+                <!--<input type="radio" name="genders" value="0">男-->
+                <td>
+                    <input type="radio" name="genders" value="0">男
+                    <input type="radio" name="genders" value="1">女
+                    <input type="radio" name="genders" value="2" checked="checked">指定なし
+                </td>
+                <td>アカウント権限</td>
+                <td>
+                    <select name="authoritys" class="textpull">
+                        <option value="2" checked="checked">指定なし</option>
+                        <option value="0">一般</option>
+                        <option value="1">管理者</option>
+                    </select>
+                </td>
             </tr>
+            
             <div class="searbotton">
                 <input type="submit" class="search color" value="検索">
             </div>
