@@ -5,9 +5,8 @@ session_start();
 $pdo = new PDO("mysql:dbname=lesson01;host=localhost;","root","root");
 $stmt=$pdo->query("select * from diworks_blogs where mail = '".$_POST['mail']."'");
 
-
 if($rows = $stmt->fetch()) {
-$_SESSION['authority'] = $rows['authority'];
+    $_SESSION['authority'] = $rows['authority'];
 if ($_SESSION['authority'] == 1) {//管理者であるとき
     $regist = '<a href="./regist.php">アカウント登録</a>';
     $list = '<a href="./list.php">アカウント一覧</a>';

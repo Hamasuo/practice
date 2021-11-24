@@ -92,6 +92,7 @@ footer{
 .list table{
     margin-top: 60px;
 }
+
 .search{
     border: none;
     outline: none;
@@ -99,8 +100,9 @@ footer{
     box-sizing: border-box;
     height: 20px;
     font-size: 1em;
+    text-align:center;
 }
-.aaa{
+.search_item{
     text-align:center;
 }
 .color{
@@ -126,19 +128,16 @@ footer{
     height: 800px;
     margin: 0 auto;
 }
-
 .comment{
     color: red;
     font-weight:600;
 }
-
 a{
     text-decoration:none;
     font-size: 13px;
     border: 2px solid black;
     padding: 20px 50px 20px 50px;
 }
-
 .login{
     padding-bottom: 1em;
 }

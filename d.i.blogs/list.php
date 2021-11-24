@@ -2,9 +2,10 @@
 mb_internal_encoding("utf8");
 
 $pdo = new PDO("mysql:dbname=lesson01;host=localhost;","root","root");
-$stmt=$pdo->query("select * from diworks_blogs ORDER BY id DESC;");
+$conditions = '';
 
 session_start();
+//管理者権限の確認
 if (empty($_SESSION['authority'])) {//SESSION情報がない場合
     print('
     <!DOCTYPE html>
@@ -76,6 +77,44 @@ if (empty($_SESSION['authority'])) {//SESSION情報がない場合
     ');
     die();
 }
+
+//検索条件
+if(count($_POST)>0){
+    if($_POST['family_names'] != ""){
+        $conditions .= "and family_name LIKE '%".$_POST['family_names']."%'";
+    }
+    if($_POST['last_names'] != ""){
+        $conditions .= "and last_name LIKE '%".$_POST['last_names']."%'";
+    }
+    if($_POST['family_name_kanas'] != ""){
+        $conditions .= "and family_name_kana LIKE '%".$_POST['family_name_kanas']."%'";
+    }
+    if($_POST['last_name_kanas'] != ""){
+        $conditions .= "and last_name_kana LIKE '%".$_POST['last_name_kanas']."%'";
+    }
+    if($_POST['mails'] != ""){
+        $conditions .= "and mail LIKE '%".$_POST['mails']."%'";
+    }
+    if($_POST['genders'] == "0" or $_POST['genders'] == "1"){
+        $conditions .= "and gender LIKE '%".$_POST['genders']."%'";
+    }
+    if($_POST['authoritys'] == "0" or $_POST['authoritys'] == "1"){
+        $conditions .= "and authority LIKE '%".$_POST['authoritys']."%'";
+    }
+}
+$stmt=$pdo->query("select * from diworks_blogs where id >= 0 ".$conditions." ORDER BY id DESC");
+
+//検索条件の記憶
+if (!empty($_POST)) {
+    $_SESSION['family_names'] = $_POST['family_names'];
+    $_SESSION['last_names'] = $_POST['last_names'];
+    $_SESSION['family_name_kanas'] = $_POST['family_name_kanas'];
+    $_SESSION['last_name_kanas'] = $_POST['last_name_kanas'];
+    $_SESSION['mails'] = $_POST['mails'];
+    $_SESSION['genders'] = $_POST['genders'];
+    $_SESSION['authoritys'] = $_POST['authoritys'];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -93,44 +132,88 @@ if (empty($_SESSION['authority'])) {//SESSION情報がない場合
             <div class="list_container">
                 <div class="page_name">アカウント一覧</div>
                 
-                <form action="" method="post">
+                <!--検索-->
+                <form action="list.php" method="post">
                     <table width="100%" bgcolor="black" cellspacing="1px" name="list_table">
                         <tr bgcolor="white">
-                            <td>名前(姓)</td><td><input type="text" class="search" name=""></td>
-                            <td>名前(名)</td><td><input type="text" class="search" name=""></td>
+                            <td>名前(姓)</td><td><input type="text" class="search" name="family_names" value="<?=$_SESSION['family_names']?>"></td>
+                            <td>名前(名)</td><td><input type="text" class="search" name="last_names" value="<?=$_SESSION['last_names']?>"></td>
                         </tr>
                         <tr bgcolor="white">
-                            <td>カナ(姓)</td><td><input type="text" class="search" name=""></td>
-                            <td>カナ(名)</td><td><input type="text" class="search" name=""></td>
+                            <td>カナ(性)</td><td><input type="text" class="search" name="family_name_kanas" value="<?=$_SESSION['family_name_kanas']?>"></td>
+                            <td>カナ(名)</td><td><input type="text" class="search" name="last_name_kanas" value="<?=$_SESSION['last_name_kanas']?>"></td>
                         </tr>
                         <tr bgcolor="white">
-                            <td>メールアドレス</td><td><input type="text" class="search" name=""></td>
+                            <td>メールアドレス</td><td><input type="text" class="search" name="mails" value="<?=$_SESSION['mails']?>"></td>
                             <td>性別</td>
                             <td>
-                                <div class="aaa">
-                                    <input type="radio" name="gender" value="0" checked="checked">男
-                                    <input type="radio" name="gender" value="1">女
+                                <div class="search_item">
+                                    <input type="radio" name="genders" value="0"
+                                           <?php
+                                            if ($_SESSION['genders'] == 0){
+                                                echo "checked";
+                                            }
+                                            ?>
+                                           >男
+                                    <input type="radio" name="genders" value="1"
+                                           <?php
+                                            if ($_SESSION['genders'] == 1){
+                                                echo "checked";
+                                            }
+                                            ?>
+                                           >女
+                                    <input type="radio" name="genders" value="2"
+                                           <?php
+                                            if ($_SESSION['genders'] == 2){
+                                                echo "checked";
+                                            }
+                                            ?>
+                                           >指定なし
                                 </div>
                             </td>
                         </tr>
                         <tr bgcolor="white">
                             <td>アカウント権限</td>
                             <td>
-                                <select name="authority" class="search aaa">
-                                    <option value="0" checked="checked">一般</option>
-                                    <option value="1">管理者</option>
+                                <select name="authoritys" class="search">
+                                    <option value="2"
+                                            <?php
+                                            if ($_SESSION['authoritys'] == 2){
+                                                echo "selected";
+                                            }
+                                            ?>
+                                            >指定なし</option>
+                                    <option value="0"
+                                            <?php
+                                            if ($_SESSION['authoritys'] == 0){
+                                                echo "selected";
+                                            }
+                                            ?>
+                                            >一般</option>
+                                    <option value="1"
+                                            <?php
+                                            if ($_SESSION['authoritys'] == 1){
+                                                echo "selected";
+                                            }
+                                            ?>
+                                            >管理者</option>
                                 </select>
                             </td>
                             <td colspan="2"></td>
                         </tr>
                     </table>
-                
-                
+                    
                     <div class="searbotton">
                         <input type="submit" class="search color" value="検索">
                     </div>
                 </form>
 
+                <!--リスト一覧-->
+                <?php
+                if(empty($_POST)){
+                    ;
+                } else {
+                ?>
                 <table width="100%" bgcolor="black" cellspacing="1px" name="list_table">
                     <tr bgcolor="white">
                         <th>ID</th><th>名前（姓）</th><th>名前（名）</th><th>カナ(姓)</th><th>カナ(名)</th><th>メールアドレス</th><th>性別</th><th>アカウント権限</th><th>削除フラグ</th><th>登録日時</th><th>更新日時</th><th colspan="2">操作</th>
@@ -188,6 +271,10 @@ if (empty($_SESSION['authority'])) {//SESSION情報がない場合
                         }
                         ?>
                 </table>
+                <?php
+                }
+                ?>
+                
             </div>
         </main>
         

@@ -49,8 +49,6 @@ if($rows = $stmt->fetch()) {
 if(password_verify($_POST['password'], $rows["password"])) {
     $msg = 'ログイン完了しました。';
     $link = 'd.i.blog.php';
-    //$link = 'ttest.php';
-    
     $comm = 'TOPページへ進む';
 } else {
     $msg = 'メールアドレスもしくはパスワードが間違っています。';
@@ -63,6 +61,9 @@ if(password_verify($_POST['password'], $rows["password"])) {
     $comm = '戻る';
 }
 }
+
+session_start();
+$_SESSION['mailaddress'] = $_POST['mail'];
 ?>
 
 <!DOCTYPE html>

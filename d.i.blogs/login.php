@@ -1,3 +1,13 @@
+<?php
+mb_internal_encoding("utf8");
+
+session_start();
+if(empty($_SESSION['mailaddress'])){
+    $loginmail = '';
+} elseif(!empty($_SESSION['mailaddress'])) {
+    $loginmail = $_SESSION['mailaddress'];
+}
+?>
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -22,7 +32,7 @@
                         <tr>
                             <td>メールアドレス</td>
                             <td>
-                                <input type="text" class="text" maxlength='100' name="mail">
+                                <input type="text" class="text" maxlength='100' name="mail" value="<?=$loginmail?>">
                                 <div class="check_error" id="mail_error"></div>
                             </td>
                         </tr>

@@ -56,6 +56,26 @@ if(count($_POST)>0){
 
 //var_dump($conditions);
 $stmt=$pdo->query("select * from diworks_blogs where id >= 0 ".$conditions." ORDER BY id DESC");
+
+session_start();
+if (!empty($_POST)) {
+    $_SESSION['family_names'] = $_POST['family_names'];
+    $_SESSION['last_names'] = $_POST['last_names'];
+    $_SESSION['family_name_kanas'] = $_POST['family_name_kanas'];
+    $_SESSION['last_name_kanas'] = $_POST['last_name_kanas'];
+    $_SESSION['mails'] = $_POST['mails'];
+    $_SESSION['genders'] = $_POST['genders'];
+    $_SESSION['authoritys'] = $_POST['authoritys'];
+/*
+if (empty($_SESSION['family_names'])) {//SESSION情報がない場合
+    $msg = '';
+} else if(!empty($_SESSION['family_names'])) {//SESSION情報があるとき
+    $msg = $_SESSION['family_names'];
+}
+*/
+}
+
+
     
 //$stmt=$pdo->query("select * from diworks_blogs ".$conditions);
 
@@ -84,24 +104,60 @@ $var .= "お";
         
         <form action="ttest.php" method="post">
             <tr bgcolor="white">
-                <td>名前(姓)</td><td><input type="text" class="search" name="family_names"></td>
-                <td>名前(名)</td><td><input type="text" class="search" name="last_names"></td>
-                <td>カナ(性)</td><td><input type="text" class="search" name="family_name_kanas"></td>
-                <td>カナ(名)</td><td><input type="text" class="search" name="last_name_kanas"></td>
-                <td>メールアドレス</td><td><input type="text" class="search" name="mails"></td>
+                <td>名前(姓)</td><td><input type="text" class="search" name="family_names" value="<?=$_SESSION['family_names']?>"></td>
+                <td>名前(名)</td><td><input type="text" class="search" name="last_names" value="<?=$_SESSION['last_names']?>"></td>
+                <td>カナ(性)</td><td><input type="text" class="search" name="family_name_kanas" value="<?=$_SESSION['family_name_kanas']?>"></td>
+                <td>カナ(名)</td><td><input type="text" class="search" name="last_name_kanas" value="<?=$_SESSION['last_name_kanas']?>"></td>
+                <td>メールアドレス</td><td><input type="text" class="search" name="mails" value="<?=$_SESSION['mails']?>"></td>
                 <td>性別</td>
                 <!--<input type="radio" name="genders" value="0">男-->
                 <td>
-                    <input type="radio" name="genders" value="0">男
-                    <input type="radio" name="genders" value="1">女
-                    <input type="radio" name="genders" value="2" checked="checked">指定なし
+                    <input type="radio" name="genders" value="0"
+                           <?php
+                            if ($_SESSION['genders'] == 0){
+                                echo "checked";
+                            }
+                            ?>
+                           >男
+                    <input type="radio" name="genders" value="1"
+                           <?php
+                            if ($_SESSION['genders'] == 1){
+                                echo "checked";
+                            }
+                            ?>
+                           >女
+                    <input type="radio" name="genders" value="2"
+                           <?php
+                            if ($_SESSION['genders'] == 2){
+                                echo "checked";
+                            }
+                            ?>
+                           >指定なし
                 </td>
                 <td>アカウント権限</td>
                 <td>
                     <select name="authoritys" class="textpull">
-                        <option value="2" checked="checked">指定なし</option>
-                        <option value="0">一般</option>
-                        <option value="1">管理者</option>
+                        <option value="2"
+                                <?php
+                                if ($_SESSION['authoritys'] == 2){
+                                    echo "selected";
+                                }
+                                ?>
+                                >指定なし</option>
+                        <option value="0"
+                                <?php
+                                if ($_SESSION['authoritys'] == 0){
+                                    echo "selected";
+                                }
+                                ?>
+                                >一般</option>
+                        <option value="1"
+                                <?php
+                                if ($_SESSION['authoritys'] == 1){
+                                    echo "selected";
+                                }
+                                ?>
+                                >管理者</option>
                     </select>
                 </td>
             </tr>

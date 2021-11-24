@@ -2,6 +2,7 @@
 mb_internal_encoding("utf8");
 
 session_start();
+//管理者権限の確認
 if (empty($_SESSION['authority'])) {//SESSION情報がない場合
     print('
     <!DOCTYPE html>
