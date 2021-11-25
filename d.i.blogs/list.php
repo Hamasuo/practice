@@ -105,14 +105,22 @@ if(count($_POST)>0){
 $stmt=$pdo->query("select * from diworks_blogs where id >= 0 ".$conditions." ORDER BY id DESC");
 
 //検索条件の記憶
-if (!empty($_POST)) {
-    $_SESSION['family_names'] = $_POST['family_names'];
-    $_SESSION['last_names'] = $_POST['last_names'];
-    $_SESSION['family_name_kanas'] = $_POST['family_name_kanas'];
-    $_SESSION['last_name_kanas'] = $_POST['last_name_kanas'];
-    $_SESSION['mails'] = $_POST['mails'];
-    $_SESSION['genders'] = $_POST['genders'];
-    $_SESSION['authoritys'] = $_POST['authoritys'];
+if (empty($_POST)) {
+    $family_names = '';
+    $last_names = '';
+    $family_name_kanas = '';
+    $last_name_kanas = '';
+    $mails = '';
+    $genders = '2';
+    $authoritys = '2';
+}elseif(!empty($_POST)) {
+    $family_names = $_POST['family_names'];
+    $last_names = $_POST['last_names'];
+    $family_name_kanas = $_POST['family_name_kanas'];
+    $last_name_kanas = $_POST['last_name_kanas'];
+    $mails = $_POST['mails'];
+    $genders = $_POST['genders'];
+    $authoritys = $_POST['authoritys'];
 }
 
 ?>
@@ -136,35 +144,35 @@ if (!empty($_POST)) {
                 <form action="list.php" method="post">
                     <table width="100%" bgcolor="black" cellspacing="1px" name="list_table">
                         <tr bgcolor="white">
-                            <td>名前(姓)</td><td><input type="text" class="search" name="family_names" value="<?=$_SESSION['family_names']?>"></td>
-                            <td>名前(名)</td><td><input type="text" class="search" name="last_names" value="<?=$_SESSION['last_names']?>"></td>
+                            <td>名前(姓)</td><td><input type="text" class="search" name="family_names" value="<?=$family_names?>"></td>
+                            <td>名前(名)</td><td><input type="text" class="search" name="last_names" value="<?=$last_names?>"></td>
                         </tr>
                         <tr bgcolor="white">
-                            <td>カナ(性)</td><td><input type="text" class="search" name="family_name_kanas" value="<?=$_SESSION['family_name_kanas']?>"></td>
-                            <td>カナ(名)</td><td><input type="text" class="search" name="last_name_kanas" value="<?=$_SESSION['last_name_kanas']?>"></td>
+                            <td>カナ(性)</td><td><input type="text" class="search" name="family_name_kanas" value="<?=$family_name_kanas?>"></td>
+                            <td>カナ(名)</td><td><input type="text" class="search" name="last_name_kanas" value="<?=$last_name_kanas?>"></td>
                         </tr>
                         <tr bgcolor="white">
-                            <td>メールアドレス</td><td><input type="text" class="search" name="mails" value="<?=$_SESSION['mails']?>"></td>
+                            <td>メールアドレス</td><td><input type="text" class="search" name="mails" value="<?=$mails?>"></td>
                             <td>性別</td>
                             <td>
                                 <div class="search_item">
                                     <input type="radio" name="genders" value="0"
                                            <?php
-                                            if ($_SESSION['genders'] == 0){
+                                            if ($genders == 0){
                                                 echo "checked";
                                             }
                                             ?>
                                            >男
                                     <input type="radio" name="genders" value="1"
                                            <?php
-                                            if ($_SESSION['genders'] == 1){
+                                            if ($genders == 1){
                                                 echo "checked";
                                             }
                                             ?>
                                            >女
                                     <input type="radio" name="genders" value="2"
                                            <?php
-                                            if ($_SESSION['genders'] == 2){
+                                            if ($genders == 2){
                                                 echo "checked";
                                             }
                                             ?>
@@ -178,21 +186,21 @@ if (!empty($_POST)) {
                                 <select name="authoritys" class="search">
                                     <option value="2"
                                             <?php
-                                            if ($_SESSION['authoritys'] == 2){
+                                            if ($authoritys == 2){
                                                 echo "selected";
                                             }
                                             ?>
                                             >指定なし</option>
                                     <option value="0"
                                             <?php
-                                            if ($_SESSION['authoritys'] == 0){
+                                            if ($authoritys == 0){
                                                 echo "selected";
                                             }
                                             ?>
                                             >一般</option>
                                     <option value="1"
                                             <?php
-                                            if ($_SESSION['authoritys'] == 1){
+                                            if ($authoritys == 1){
                                                 echo "selected";
                                             }
                                             ?>
